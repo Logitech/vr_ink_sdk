@@ -1,9 +1,8 @@
 # Logitech VR Pen SDK
 This SDK will allow your app to take advantage of all the features of the Logitech VR pen and give you all the necessary information to help the integration in your app.
-<br>
-![Pen Button Mapping](resources/penButtonMapping.png?raw=true)
 
-<br>
+See here below a visual of what the pen looks like and a description of the typical controls:
+![Pen Button Mapping](resources/penButtonMapping.png?raw=true)
 
 ## Development Kit Contents
 You should have received a sample of our pen, if not ask for it. 
