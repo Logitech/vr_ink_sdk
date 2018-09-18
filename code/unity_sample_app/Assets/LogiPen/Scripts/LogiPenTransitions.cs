@@ -1,65 +1,68 @@
 ﻿/* Copyright (c) Logitech Corporation. All rights reserved. Licensed under the MIT License.*/
- 
+
 namespace LogiPen.Scripts
 {
     using System.Collections;
     using UnityEngine;
 
     /// <summary>
-    /// This class will manage the button transitions on the pen, such as changing color 
-    /// of the buttons as well as the button animation.
+    ///     This class will manage the button transitions on the pen, such as changing color
+    ///     of the buttons as well as the button animation.
     /// </summary>
-    public class LogiPenTransitions: MonoBehaviour
+    public class LogiPenTransitions : MonoBehaviour
     {
         private SteamVR_TrackedController _controller;
-
-        [SerializeField] private float _offsetMovement=0.0006f;
         [SerializeField] private Color _defaultColor;
-        
-        [Header("Button Gameobjects")]
-        public GameObject MainButton;
-        public GameObject MenuButton;
-        public GameObject PadButton;
+
+        [SerializeField] private float _offsetMovement = 0.0006f;
         public GameObject GripButtonLeft;
         public GameObject GripButtonRight;
 
-        
-        private void Start()
-        {
+        [Header("Button Gameobjects")] public GameObject MainButton;
 
+        public GameObject MenuButton;
+        public GameObject PadButton;
+
+
+        private IEnumerator Start()
+        {
+            
+            yield return new WaitForSeconds(0.5f);
+            
             _controller = LogiPen.Instance.Controller;
 
             if (_controller == null)
             {
                 Debug.LogError("Could not find Logipen instance in the scene. Make sure " +
                                "LogiPen.cs is attached to a GameObject in the scene");
-                return;
+                yield return null;
             }
-        
+
 
             //Register callbacks for animation events
             _controller.Gripped += GrippedClikedAnimation;
             _controller.Ungripped += UngrippedClikedAnimation;
-    
+
             _controller.TriggerClicked += MainButtonClickedAnimation;
             _controller.TriggerUnclicked += MainButtonReleasedAnimation;
-            
+
             _controller.MenuButtonClicked += MenuButtonClickedAnimation;
             _controller.MenuButtonUnclicked += MenuButtonReleasedAnimation;
-            
+
             _controller.PadClicked += PadButtonClickedAnimation;
             _controller.PadUnclicked += PadButtonReleasedAnimation;
-
+            
+            yield return null;
         }
 
         /// <summary>
-        /// Change Color of material on target renderer
-        /// Change both regular and emission color. 
-        /// Can use the static methods outside of this class to change color of anything else 
+        ///     Change Color of material on target renderer
+        ///     Change both regular and emission color.
+        ///     Can use the static methods outside of this class to change color of anything else
         /// </summary>
         /// <param name="target"></param>
         /// <param name="newColor"></param>
-        public static void ChangeColor(Renderer target,Color newColor)
+        public static void ChangeColor(Renderer target, Color newColor)
         {
             target.material.color = newColor;
             if (newColor != Color.black)
@@ -70,7 +73,7 @@ namespace LogiPen.Scripts
         }
 
         /// <summary>
-        /// Overload for Gameobject Parameter
+        ///     Overload for Gameobject Parameter
         /// </summary>
         public static void ChangeColor(GameObject obj, Color newColor)
         {
@@ -79,75 +82,75 @@ namespace LogiPen.Scripts
                 Debug.LogError("The game object doens't have a renderer, can't change it's color !");
                 return;
             }
-            ChangeColor(obj.GetComponent<Renderer>(),newColor);
-            
+            ChangeColor(obj.GetComponent<Renderer>(), newColor);
         }
-        
+
         //Callbacks
         private void PadButtonReleasedAnimation(object sender, ClickedEventArgs e)
         {
             //Use Dotween plugin--PadButton.transform.DOLocalMoveY(0.01046997f, 0.1f);
             //StartCoroutine(DoLocalMoveY(PadButton, 0.01046997f, 0.1f)); uncomment for animation of buttons
-            ChangeColor(PadButton,_defaultColor);
-            
+            ChangeColor(PadButton, _defaultColor);
         }
 
         private void PadButtonClickedAnimation(object sender, ClickedEventArgs e)
         {
             //StartCoroutine(DoLocalMoveY(PadButton,-_offsetMovement, 0.1f,isRelative:true));
-            ChangeColor(PadButton,LogiPen.Instance.GetPenColor());
+            ChangeColor(PadButton, LogiPen.Instance.GetPenColor());
         }
 
         private void MenuButtonReleasedAnimation(object sender, ClickedEventArgs e)
         {
-          //  StartCoroutine(DoLocalMoveY(MenuButton,0.01046997f, 0.1f));
-            ChangeColor(MenuButton,_defaultColor);
+            //  StartCoroutine(DoLocalMoveY(MenuButton,0.01046997f, 0.1f));
+            ChangeColor(MenuButton, _defaultColor);
         }
 
         private void MenuButtonClickedAnimation(object sender, ClickedEventArgs e)
         {
             //StartCoroutine(DoLocalMoveY(MenuButton,-_offsetMovement, 0.1f,isRelative:true));
-            ChangeColor(MenuButton,LogiPen.Instance.GetPenColor());
+            ChangeColor(MenuButton, LogiPen.Instance.GetPenColor());
         }
 
         private void MainButtonReleasedAnimation(object sender, ClickedEventArgs e)
         {
             //StartCoroutine(DoLocalMoveY(MainButton, 0.01046997f, 0.1f));
-            ChangeColor(MainButton,_defaultColor);
+            ChangeColor(MainButton, _defaultColor);
         }
 
         private void MainButtonClickedAnimation(object sender, ClickedEventArgs e)
         {
             //tartCoroutine(DoLocalMoveY(MainButton,-_offsetMovement, 0.1f,isRelative:true));
-            ChangeColor(MainButton,LogiPen.Instance.GetPenColor());            
+            ChangeColor(MainButton, LogiPen.Instance.GetPenColor());
         }
 
         private void UngrippedClikedAnimation(object sender, ClickedEventArgs e)
         {
             //StartCoroutine(DoLocalMoveX(GripButton, -0.01007005f, 0.1f));
-            ChangeColor(GripButtonLeft,_defaultColor);
-            ChangeColor(GripButtonRight,_defaultColor);
+            ChangeColor(GripButtonLeft, _defaultColor);
+            ChangeColor(GripButtonRight, _defaultColor);
         }
 
         private void GrippedClikedAnimation(object sender, ClickedEventArgs e)
         {
             //StartCoroutine(DoLocalMoveX(GripButton, _offsetMovement, 0.1f,isRelative:true));
-            ChangeColor(GripButtonLeft,LogiPen.Instance.GetPenColor());
-            ChangeColor(GripButtonRight,LogiPen.Instance.GetPenColor());
+            ChangeColor(GripButtonLeft, LogiPen.Instance.GetPenColor());
+            ChangeColor(GripButtonRight, LogiPen.Instance.GetPenColor());
         }
-        
+
         /// <summary>
-        /// Example of Coroutine animation.
+        ///     Example of Coroutine animation.
         /// </summary>
         /// <param name="obj">Gameobject to move</param>
         /// <param name="target">target position to move towards to</param>
         /// <param name="duration">duration of the animation</param>
-        /// <param name="isRelative">relative means adding target to current transfrom as opposed
-        /// to give an absolute value as a target for the animation</param>
+        /// <param name="isRelative">
+        ///     relative means adding target to current transfrom as opposed
+        ///     to give an absolute value as a target for the animation
+        /// </param>
         /// <returns></returns>
-        IEnumerator DoLocalMove(GameObject obj,Vector3 target,float duration,bool isRelative = false)
+        private IEnumerator DoLocalMove(GameObject obj, Vector3 target, float duration, bool isRelative = false)
         {
-            float start=0;
+            float start = 0;
             Vector3 startPositon;
             Vector3 targetPosition;
             if (isRelative)
@@ -169,18 +172,18 @@ namespace LogiPen.Scripts
             }
         }
 
-        IEnumerator DoLocalMoveY(GameObject obj,float offset,float duration,bool isRelative = false)
+        private IEnumerator DoLocalMoveY(GameObject obj, float offset, float duration, bool isRelative = false)
         {
             var startPositon = obj.transform.localPosition;
-            var target = isRelative ? new Vector3(0,offset,0) : new Vector3(startPositon.x,offset,startPositon.z);
-            return DoLocalMove(obj, target, duration,isRelative);
+            var target = isRelative ? new Vector3(0, offset, 0) : new Vector3(startPositon.x, offset, startPositon.z);
+            return DoLocalMove(obj, target, duration, isRelative);
         }
-        
-        IEnumerator DoLocalMoveX(GameObject obj,float offset,float duration,bool isRelative = false)
+
+        private IEnumerator DoLocalMoveX(GameObject obj, float offset, float duration, bool isRelative = false)
         {
             var startPositon = obj.transform.localPosition;
-            var target = isRelative ? new Vector3(offset,0,0) : new Vector3(offset,startPositon.y,startPositon.z);
-            return DoLocalMove(obj, target, duration,isRelative);
+            var target = isRelative ? new Vector3(offset, 0, 0) : new Vector3(offset, startPositon.y, startPositon.z);
+            return DoLocalMove(obj, target, duration, isRelative);
         }
     }
 }

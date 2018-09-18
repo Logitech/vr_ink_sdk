@@ -4,9 +4,7 @@ In the scene `Sample_PenAutoDetect` there's an example of how to do this:
 <br>
 ![Pen Dectection in Unity inspector](../../resources/LogiPenDetection.PNG?raw=true)
 
-We recommend that you use the **ModelNumber_String property** to detect if the pen is connected. [You can find more information about this on this part of the Github](https://github.com/Logitech/labs_vr_pen_sdk/tree/master/code/steamVR_renderModels) where there's a table that shows the value of these properties for each version of the physical device. 
-
-
+We recommend that you use the **ModelNumber_String property** to detect if the pen is connected. [You can find more information about this on this part of the Github](https://github.com/Logitech/labs_vr_pen_sdk/tree/master/code/steamVR_renderModels) where there's a table that shows the value of these properties for each version of the physical device. When you have the game window in focus you can **press P** on the keyboard to print the different property strings in the Unity console. 
 
 # Grip Pose Versus Pointer Pose
 ## Prequisite Reading on Pose 

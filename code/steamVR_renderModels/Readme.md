@@ -2,7 +2,7 @@ This folder contains the current render models for the different revisions of th
 
 
 ## Add Render Model to SteamVR
-Copy one of the folders in the RenderModel folder to the appropriate SteamVR sub-folder. Typically the path is something like this `C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\rendermodels`
+Copy the `logi_pen` folder to the appropriate SteamVR sub-folder. Typically the path is something like this `C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\rendermodels`
 
 
 ## SteamVR property for each device 

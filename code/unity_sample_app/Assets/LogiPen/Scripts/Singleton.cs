@@ -1,5 +1,5 @@
 ﻿/* Copyright (c) Logitech Corporation. All rights reserved. Licensed under the MIT License.*/
- 
+
 namespace LogiPen.Scripts
 {
     using UnityEngine;
@@ -11,7 +11,7 @@ namespace LogiPen.Scripts
         public static bool IsInitialized
         {
             get { return Instance != null; }
-            set {  }
+            set { }
         }
 
         protected virtual void Awake()
@@ -21,8 +21,8 @@ namespace LogiPen.Scripts
                 Debug.LogErrorFormat("Trying to instantiate a second instance of singleton class ");
                 return;
             }
-            
-            Instance = (T)this;
+
+            Instance = (T) this;
         }
 
         protected virtual void OnDestroy()
