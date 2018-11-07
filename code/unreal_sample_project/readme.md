@@ -4,15 +4,15 @@
 
 ## How to use
 
-Keep in ming that this SDK is a reference implementation rather than a toolbox. While you are more than welcome to re-use parts of this (provided you follow the terms of this repository's licence), we this project as a simple example.
+Keep note that this SDK is a reference implementation rather than a toolkit. While you are more than welcome to re-use parts of this (provided you follow the terms of this repository's licence), we supply this project as a simple starter example only.
 
-Unzip [LogiPenUnrealSDK.zip](https://github.com/Logitech/labs_vr_pen_sdk/releases) somewhere on your machine and double click on `LogiPenUnrealSDK.uproject`. Unreal Engine will then open the project and, after compiling everything, you should be able to try out the Logi Pen in UE4! Make sure to use VR Preview, as shown below:
+Unzip [LogiPenUnrealSDK.zip](https://github.com/Logitech/labs_vr_pen_sdk/releases) file on your machine and double-click on `LogiPenUnrealSDK.uproject`. Unreal Engine will then open the project, and after compiling everything, you will be able to try out the Logi Pen in UE4! Make sure to use VR Preview, as shown below:
 
 ![Play in VR](./../../resources/unreal/vr_preview.png)
 
 ## Content
 
-This section describes the main components, pieces of code, blueprints, and assets contained in this SDK.
+This section describes the main components, pieces of code, Blueprints, and assets contained in the SDK.
 
 ### Pen models
 
@@ -20,15 +20,15 @@ We provide you with two models of the pen: a full mesh and a simplified one.
 
 ![pen models](./../../resources/unreal/pen_models.png)
 
-If your application doesn't require the users to quickly move around--at the risk of hitting something with the tracking geometry of the pen--we recommend using the simple model. We suggest you try to use the tab at the end of the pen as an additional UI element: this could for instance be the current ink colour, or pulse when the user's attention is needed elsewhere in your app.
+If your application doesn't require the user to quickly move around--at the risk of hitting something with the tracking geometry of the pen--we recommend using the simple model. We suggest you try to use the tab at the end of the pen as an additional UI element: for example, this could be the current ink colour, or pulse when the user's attention is needed elsewhere in your app.
 
 ### VR Player With Pen
 
-This Blueprint is a Pawn and was put together following the step-by-step guide in the section below.
+This Blueprint is a Pawn and was created following the step-by-step guide outlined below.
 
 ### Create Child if Pen
 
-A rather simple blueprint function graph determining if a given Motion Controller is a Logi Pen, in which case it hides its default model and replaces it with the pen model specified in the Pawn.
+A rather simple Blueprint function graph determining if a given Motion Controller is a Logi Pen, in which case it hides its default model and replaces it with the pen model specified in the Pawn.
 
 ### C++ code
 
@@ -36,11 +36,11 @@ Intentionally kept very simple, the few lines of code included in this SDK can b
 
 ## Adding Logi Pen Motion controller to your scene
 
-This is a way to add the Logi Pen to a scene using the assets contained in this project:
+This is how to add the Logi Pen to a scene using the assets contained in this project:
 
 * Configure a VR Player Pawn: [UE Doc](https://docs.unrealengine.com/en-US/Platforms/SteamVR/HowTo/StandingCamera)
 * Configure left and right motion controller, including component visualization (this is important to detect which controller is the Logi Pen): [UE Doc](https://docs.unrealengine.com/latest/INT/Platforms/VR/MotionController)
-* In the pawn's Event Graph, after `Set Tracking Origin`, add a `Sequence`, and add a `Create Child if Pen` to both outputs:
+* In the Pawn's Event Graph, after `Set Tracking Origin`, add a `Sequence`, and add a `Create Child if Pen` to both outputs:
 
   ![add action](./../../resources/unreal/add_action.png)
 
@@ -50,6 +50,6 @@ This is a way to add the Logi Pen to a scene using the assets contained in this 
 
   ![overall BP](./../../resources/unreal/create_child_if_pen.png)
 
-* Return to your map, drop the VR pawn, make sure it is at the origin, set it as auto possess player 0, and use LogiPenModel_simple as Logi Pen Actor. This Actor is the one that will override the default model coming from SteamVR
+* Return to your map, drop the VR Pawn, make sure it is at the origin, set it as Auto Possess Player 0, and use LogiPenModel_simple as Logi Pen Actor. This Actor is the one that will override the default model coming from SteamVR.
 
   ![pawn config](./../../resources/unreal/vr_player_pawn_config_highlight.png)
