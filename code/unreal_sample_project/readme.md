@@ -2,13 +2,6 @@
 
 ![logo](./../../resources/unreal/LogiPenUnrealSDK.png)
 
-To do:
-
-* add example scene of pointer pose vs grip pose.
-* find out why in build application the pen gets inconsistently replaced (might have to do with the experimental nature of the Motion Controller class in UE)
-
-Note: in the official SDK, only the zip file will be provided as a release download, this repo is here for internal versioning.
-
 ## How to use
 
 Keep in ming that this SDK is a reference implementation rather than a toolbox. While you are more than welcome to re-use parts of this (provided you follow the terms of this repository's licence), we this project as a simple example.
