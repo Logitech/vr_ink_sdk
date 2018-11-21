@@ -9,17 +9,25 @@ You should have received a sample of our pen, if not ask for it.
 
 Available Directly in the Repo:
 - [Sample Unity application](https://github.com/Logitech/labs_vr_pen_sdk/tree/master/code/unity_sample_app) open source showing best practice to integrate the pen in your application
+- [Unreal Engine documentation](https://github.com/Logitech/labs_vr_pen_sdk/tree/master/code/unreal_sample_project) for Pen support
 - [SteamVR render Models](https://github.com/Logitech/labs_vr_pen_sdk/tree/master/code/steamVR_renderModels) for different versions of the pen
 
 Available in the [Release](https://github.com/Logitech/labs_vr_pen_sdk/releases):
+- SteamVR render model installer
 - Demo app 
 - Unity package source code to be used for the integration of the keyboard in your app
+- Unreal Engine full project
 - 3D Models
 
 
 ## Setting Up The Pen
 ### Add the RenderModel to SteamVR
 This step will allow you to see the pen inside the SteamVR shell.
+
+#### Use the installer
+Download the Logi Pen Model Installer on the [releases page](https://github.com/Logitech/labs_vr_pen_sdk/releases), run the application, and follow the instructions on screen!
+
+#### Copy files manually
 Copy the [RenderModel folder](https://github.com/Logitech/labs_vr_pen_sdk/tree/master/code/steamVR_renderModels) that corresponds to the version of your Logitech Pen in the appropriate SteamVR sub-folder. Typically the path is something like this : `C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\rendermodels`
 ### Pairing the pen
 ![Pair Pairing](resources/pairPen.png?raw=true)
