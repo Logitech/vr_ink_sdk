@@ -151,38 +151,38 @@ namespace LogiPen.Scripts
         private IEnumerator DoLocalMove(GameObject obj, Vector3 target, float duration, bool isRelative = false)
         {
             float start = 0;
-            Vector3 startPositon;
+            Vector3 startPosition;
             Vector3 targetPosition;
             if (isRelative)
             {
-                startPositon = obj.transform.localPosition;
-                targetPosition = startPositon + target;
+                startPosition = obj.transform.localPosition;
+                targetPosition = startPosition + target;
             }
             else
             {
-                startPositon = obj.transform.localPosition;
+                startPosition = obj.transform.localPosition;
                 targetPosition = target;
             }
             while (start < duration)
             {
                 start += Time.deltaTime;
                 var lerp = Mathf.Clamp01(start / duration);
-                obj.transform.localPosition = Vector3.Lerp(startPositon, targetPosition, lerp);
+                obj.transform.localPosition = Vector3.Lerp(startPosition, targetPosition, lerp);
                 yield return null;
             }
         }
 
         private IEnumerator DoLocalMoveY(GameObject obj, float offset, float duration, bool isRelative = false)
         {
-            var startPositon = obj.transform.localPosition;
-            var target = isRelative ? new Vector3(0, offset, 0) : new Vector3(startPositon.x, offset, startPositon.z);
+            var startPosition = obj.transform.localPosition;
+            var target = isRelative ? new Vector3(0, offset, 0) : new Vector3(startPosition.x, offset, startPosition.z);
             return DoLocalMove(obj, target, duration, isRelative);
         }
 
         private IEnumerator DoLocalMoveX(GameObject obj, float offset, float duration, bool isRelative = false)
         {
-            var startPositon = obj.transform.localPosition;
-            var target = isRelative ? new Vector3(offset, 0, 0) : new Vector3(offset, startPositon.y, startPositon.z);
+            var startPosition = obj.transform.localPosition;
+            var target = isRelative ? new Vector3(offset, 0, 0) : new Vector3(offset, startPosition.y, startPosition.z);
             return DoLocalMove(obj, target, duration, isRelative);
         }
     }

@@ -14,7 +14,7 @@ namespace LogiPen.Scripts
         public const float LineMinimumWidth = 0.001f;
 
         [Header("Pen Setup")] [SerializeField] private SteamVR_TrackedObject _trackedDevice;
-        
+
         [Header("Pen Attributes")] [SerializeField] private float _lineWidth = 0.005f;
 
         [SerializeField] private Material _penColorMaterial;
@@ -45,7 +45,7 @@ namespace LogiPen.Scripts
         }
 
         /// <summary>
-        ///     Get color from the pen. You could also get the Renderer troughh the singleton if needed
+        ///     Get color from the pen. You could also get the Renderer trough the singleton if needed
         /// </summary>
         /// <returns>Pen Color</returns>
         public Color GetPenColor()
@@ -54,7 +54,7 @@ namespace LogiPen.Scripts
         }
 
         /// <summary>
-        ///     Set the pen model to follow the SteamVR trackked controller
+        ///     Set the pen model to follow the SteamVR tracked controller
         /// </summary>
         private void LateUpdate()
         {

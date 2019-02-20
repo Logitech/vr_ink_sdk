@@ -31,7 +31,7 @@ namespace LogiPen.Scripts
                 to.SetActive(false);
             }
 
-            //Replace here with the tracked controler you have chosen
+            //Replace here with the tracked controller you have chosen
             var trackedObjectIndex = (uint) _steamVrTrackedObject.index;
 
             foreach (var to in _trackedObjectList)
