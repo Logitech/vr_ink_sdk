@@ -58,12 +58,13 @@ If you want to try a fully integrated application I recommend you to try out the
 <br>
 You can also get started with the device in Unity by either cloning this repository or downloading the Unity Package available in the [Release](https://github.com/Logitech/labs_vr_pen_sdk/releases).
 
-
+## Logitech Stylus Roadmap
+There is a [dedicated page](https://github.com/Logitech/labs_vr_pen_sdk/blob/master/code/future_support/ReadMe.md) that goes at a high level trough the roadmap and the features that will be available with the Logitech Stylus.
 
 ## Feedback & Bugs
 
 We are working constantly to improve and address issues with the device, so please make sure you have the latest release of SDK installed and running.<br>
-You can find the list of current known issues [here](https://github.com/Logitech/labs_vr_pen_sdk/blob/master/code/future_support/ReadMe_KnownIssues.md)
+You can find the list of current known issues [here](https://github.com/Logitech/labs_vr_pen_sdk/blob/master/code/future_support/ReadMe_KnownIssues.md).
 
 We also value your input on:
 - possible bugs
