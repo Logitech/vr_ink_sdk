@@ -22,7 +22,7 @@ The key controls are:
 | System Button | The System button allows for access to the SteamVR shell. | Returns True or False |
 
 ## Development Kit Contents
-You should have received a sample of our device, if not ask for it. 
+You should have received a sample of our device, if not ask for it.
 
 Available Directly in the Repo:
 - [Sample Unity application](https://github.com/Logitech/labs_vr_pen_sdk/tree/master/code/unity_sample_app) open source showing best practice to integrate the device in your application
@@ -41,14 +41,14 @@ Available in the [Release](https://github.com/Logitech/labs_vr_pen_sdk/releases)
 This step will allow you to see the device inside the SteamVR shell.
 
 #### Using the Installer (Recommended)
-Download the Logitech Stylus Model Installer on the [releases page](https://github.com/Logitech/labs_vr_pen_sdk/releases), run the application, and follow the instructions on screen! You will have access to updated icons as well as the device rendermodel in the shell. 
+Download the Logitech Stylus Model Installer on the [releases page](https://github.com/Logitech/labs_vr_pen_sdk/releases), run the application, and follow the instructions on screen! You will have access to updated icons as well as the device rendermodel in the shell.
 
 #### Copy Files Manually
 Copy the [RenderModel folder](https://github.com/Logitech/labs_vr_pen_sdk/tree/master/code/steamVR_renderModels) that corresponds to the version of your Logitech Stylus in the appropriate SteamVR sub-folder. Typically the path is something like this : `C:\Program Files (x86)\Steam\steamapps\common\SteamVR\resources\rendermodels`
 ### Pairing the Stylus
 ![Pair Pairing](resources/pairPen.png?raw=true)
 
-<br> 
+<br>
 First turn on the Logitech Stylus by pressing the system button, status LED will go blue. Then you go into SteamVR right click on greyed-out controller icon and then select *Pair Controller*. Press both the Menu and Power buttons together, the status LED will blink BLUE, and it will be solid GREEN on the Pen once pairing is complete.
 <br>
 
@@ -56,13 +56,14 @@ First turn on the Logitech Stylus by pressing the system button, status LED will
 You are now ready to go. The pen should work with existing SteamVR applications in the same was as a Vive controller.
 If you want to try a fully integrated application I recommend you to try out the Logitech Sample app available in the [Release](https://github.com/Logitech/labs_vr_pen_sdk/releases).
 <br>
-You can also get started with the device in Unity by either cloning this repository or downloading the Unity Package available in the [Release](https://github.com/Logitech/labs_vr_pen_sdk/releases). 
+You can also get started with the device in Unity by either cloning this repository or downloading the Unity Package available in the [Release](https://github.com/Logitech/labs_vr_pen_sdk/releases).
 
 
 
 ## Feedback & Bugs
 
-We are working constantly to improve and address issues with the device, so please make sure you have the latest release of SDK installed and running.
+We are working constantly to improve and address issues with the device, so please make sure you have the latest release of SDK installed and running.<br>
+You can find the list of current known issues [here](https://github.com/Logitech/labs_vr_pen_sdk/blob/master/code/future_support/ReadMe_KnownIssues.md)
 
 We also value your input on:
 - possible bugs
