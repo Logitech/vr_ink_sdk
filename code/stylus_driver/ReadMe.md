@@ -13,7 +13,7 @@ In the near future, our device firmware will be ready to do most of the heavylif
 
 Download the Logitech VR Ink driver on the [releases page](https://github.com/Logitech/labs_vr_pen_sdk/releases), run the application and follow the instructions on screen.
 
-![Installer Console](resources/driver/startingConsole.PNG)
+![Installer Console](../../resources/driver/startingConsole.PNG)
 
 Press 1, then Enter and choose yes to any overwrite permissions.
 
@@ -23,7 +23,7 @@ If you want to uninstall the driver you can run the logitech_stylus_installer ag
 
 This is the driver UI:
 
-![driver UI](resources/driver/driverUI.png)
+![driver UI](../../resources/driver/driverUI.png)
 
 You can change the curve response for both the tip and the primary analog button. Today both of these are linked, pressing on the tip of the stylus or the analog button at the top of the stylus will activate the 2 preview sliders.
 
