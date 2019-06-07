@@ -27,8 +27,8 @@ If you don't own a Logitech VR Ink, ask for it [here!](https://www.logitech.com/
 Available Directly in the Repo:
 
 - [Getting Started on the Logitech VR Ink Integration](/code/GettingStarted.md)
-- [Sample Unity application](https://github.com/Logitech/labs_vr_pen_sdk/tree/master/code/unity_sample_app) open source showing best practice to integrate the device in your application
-- [Unreal Engine documentation](https://github.com/Logitech/labs_vr_pen_sdk/tree/master/code/unreal_sample_project) for device support
+- [Sample Unity application](code/unity_sample_app) open source showing best practice to integrate the device in your application
+- [Unreal Engine documentation](/code/unreal_sample_project) for device support
 
 Available in the [Release](https://github.com/Logitech/labs_vr_pen_sdk/releases):
 
