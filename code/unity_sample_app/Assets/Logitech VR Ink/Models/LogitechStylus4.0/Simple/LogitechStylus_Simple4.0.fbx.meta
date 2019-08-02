@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 93812e4def3607247b7d5daa31496960
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body
+    100002: EndCap
+    100004: Grip Left
+    100006: Grip Right
+    100008: //RootNode
+    100010: Menu
+    100012: Primary
+    100014: System
+    100016: Tip
+    100018: TouchStrip
+    100020: LogiLogo Left
+    100022: LogiLogo Right
+    400000: Body
+    400002: EndCap
+    400004: Grip Left
+    400006: Grip Right
+    400008: //RootNode
+    400010: Menu
+    400012: Primary
+    400014: System
+    400016: Tip
+    400018: TouchStrip
+    400020: LogiLogo Left
+    400022: LogiLogo Right
+    2100000: PCB___Silver
+    2100002: PCB__Gold
+    2100004: PenBody.001
+    2100006: LogitechStylus_Simple_Default
+    2300000: Body
+    2300002: EndCap
+    2300004: Grip Left
+    2300006: Grip Right
+    2300008: Menu
+    2300010: Primary
+    2300012: System
+    2300014: Tip
+    2300016: TouchStrip
+    2300018: LogiLogo Left
+    2300020: LogiLogo Right
+    3300000: Body
+    3300002: EndCap
+    3300004: Grip Left
+    3300006: Grip Right
+    3300008: Menu
+    3300010: Primary
+    3300012: System
+    3300014: Tip
+    3300016: TouchStrip
+    3300018: LogiLogo Left
+    3300020: LogiLogo Right
+    4300000: Body
+    4300002: EndCap
+    4300004: TouchStrip
+    4300006: Tip
+    4300008: System
+    4300010: Grip Left
+    4300012: Grip Right
+    4300014: Primary
+    4300016: Menu
+    4300018: LogiLogo Right
+    4300020: LogiLogo Left
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 0
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 0
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
