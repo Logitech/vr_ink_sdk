@@ -1,0 +1,102 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+#pragma kernel SaveFrame
+#pragma kernel WriteFrame
+#pragma kernel EraseAll
+
+// Variables
+RWTexture2D<float4> Result;
+float Range;
+
+float2 TextureDimension;
+
+float4 penColor;
+int arrayLength;
+float4 penPosition[100];
+float hardness;
+float brushSize;
+float previousBrushSize;
+bool isErasing;
+
+RWTexture2DArray<float4> UndoTexture;
+float4 previousPenPosition;
+
+Texture2D<float4> UndoTextures[100];
+
+[numthreads(32,32,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    for(int i = 0;i<arrayLength;i++){
+        float newBrushSize = lerp(previousBrushSize, brushSize, (float) i / arrayLength);
+        float dx = abs(id.x-penPosition[i].x);
+        if(dx>newBrushSize)continue;
+        float dy = abs(id.y-penPosition[i].y);
+        if(dy>newBrushSize)continue;
+        float zero = float(0);
+        if(dx+dy<newBrushSize)
+        {
+            float f = distance(id.xy,penPosition[i])-newBrushSize*hardness;
+            float4 outColor = penColor;
+            float4 currentColor = Result[id.xy];
+
+            outColor.a = f<0?1: 1 - distance(id.xy,penPosition[i])/newBrushSize;
+
+            if (currentColor.r == zero && currentColor.g == zero && currentColor.b == zero && currentColor.a == zero)
+            {
+               outColor.rgb = outColor.rgb;
+            }
+            else
+            {
+                outColor.rgb = outColor.rgb*outColor.a+currentColor.rgb*(1-outColor.a);
+            }
+
+            outColor.a = outColor.a +currentColor.a *(1-outColor.a);
+
+            Result[id.xy] =isErasing? penColor: outColor;
+            continue;
+        }
+        if(dx*dx+dy*dy<newBrushSize*newBrushSize)
+        {
+            float f = distance(id.xy,penPosition[i])-newBrushSize*hardness;
+            float4 outColor = penColor;
+            float4 currentColor = Result[id.xy];
+
+            outColor.a = f<0?1: 1 - distance(id.xy,penPosition[i])/newBrushSize;
+
+            float zero = float(0);
+            if (currentColor.r == zero && currentColor.g == zero && currentColor.b == zero && currentColor.a == zero)
+            {
+               outColor.rgb = outColor.rgb;
+            }
+            else
+            {
+                outColor.rgb = outColor.rgb*outColor.a+currentColor.rgb*(1-outColor.a);
+            }
+
+            outColor.a = outColor.a +currentColor.a *(1-outColor.a);
+
+            Result[id.xy] =isErasing? penColor: outColor;
+
+        }
+    }
+}
+
+int currentDepth;
+[numthreads(32,32,1)]
+void SaveFrame (uint3 id : SV_DispatchThreadID)
+{
+   UndoTexture[uint3(id.x,id.y,currentDepth)] = Result[id.xy];
+}
+
+[numthreads(32,32,1)]
+void WriteFrame (uint3 id : SV_DispatchThreadID)
+{
+    Result[id.xy] =  UndoTexture[uint3(id.x,id.y,currentDepth)];
+}
+
+[numthreads(32,32,1)]
+void EraseAll (uint3 id : SV_DispatchThreadID)
+{
+    Result[id.xy] = float4(0,0,0,0);
+}
+

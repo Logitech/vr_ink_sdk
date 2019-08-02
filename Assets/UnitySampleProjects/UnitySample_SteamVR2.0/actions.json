@@ -1,0 +1,93 @@
+{
+  "actions": [
+    {
+      "name": "/actions/LogitechToolkit/in/PrimaryClick",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/LogitechToolkit/in/TipClick",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/LogitechToolkit/in/GripClick",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/LogitechToolkit/in/MenuClick",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/LogitechToolkit/in/TrackpadTouch",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/LogitechToolkit/in/TrackpadClick",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/LogitechToolkit/in/TrackpadValue",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/LogitechToolkit/in/PrimaryPressure",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/LogitechToolkit/in/TipPressure",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/LogitechToolkit/in/GripPressure",
+      "type": "vector1"
+    },
+    {
+      "name": "/actions/LogitechToolkit/in/Pose",
+      "type": "pose"
+    },
+    {
+      "name": "/actions/LogitechToolkit/out/Haptics",
+      "type": "vibration"
+    }
+  ],
+  "action_sets": [
+    {
+      "name": "/actions/LogitechToolkit",
+      "usage": "single"
+    }
+  ],
+  "default_bindings": [
+    {
+      "controller_type": "logitech_stylus",
+      "binding_url": "bindings_logitech_vr_ink.json"
+    },
+    {
+      "controller_type": "lighthouse_controller",
+      "binding_url": "bindings_logitech_stylus_prototype.json"
+    },
+    {
+      "controller_type": "vive_controller",
+      "binding_url": "bindings_vive_controller.json"
+    },
+    {
+      "controller_type": "knuckles",
+      "binding_url": "bindings_index_controller.json"
+    }
+  ],
+  "localization": [
+    {
+      "language_tag": "en_US",
+      "/actions/LogitechToolkit/in/GripClick": "Grip Click",
+      "/actions/LogitechToolkit/in/GripPressure": "Grip Pressure",
+      "/actions/LogitechToolkit/in/MenuClick": "Menu Click",
+      "/actions/LogitechToolkit/in/Pose": "Pose",
+      "/actions/LogitechToolkit/in/PrimaryClick": "Primary Click",
+      "/actions/LogitechToolkit/in/PrimaryPressure": "Primary Pressure",
+      "/actions/LogitechToolkit/in/TipClick": "Tip Click",
+      "/actions/LogitechToolkit/in/TipPressure": "Tip Pressure",
+      "/actions/LogitechToolkit/in/TrackpadClick": "Trackpad Click",
+      "/actions/LogitechToolkit/in/TrackpadTouch": "Trackpad Touch",
+      "/actions/LogitechToolkit/in/TrackpadValue": "Trackpad Value",
+      "/actions/LogitechToolkit/out/Haptics": "Haptics"
+    }
+  ]
+}

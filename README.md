@@ -1,84 +1,40 @@
+<img src="./Documentation/Images/LandingPage/VRInkSDKBanner.png" alt="Logitech VR Ink">
+
 # Logitech VR Ink SDK
-This SDK will allow your app to take advantage of all the features of the Logitech VR Ink and give you all the necessary information to help with integration in your app.
+Logitech VR Ink Pilot Edition is a first-generation VR stylus for enterprise, coming later this year. Simple to use from the moment you pick it up, it offers control and precision, unleashing your creativity in VR, on two-dimensional physical surfaces or in three-dimensional room-scale space
 
-The Logitech VR Ink is a simple and powerful creative input device for VR. It allows for creation of precise, controlled lines and handwriting on virtual surfaces, physical surfaces, and in three dimensions.
+Here you will find everything you need to get started including first installation; integrating with Unity, Unreal, or your own platform; and a set of interaction examples.
 
-See below an image of the device and a description of the controls:
-![Pen Button Mapping](resources/LogiStylus.jpg?raw=true)
-### Inputs & Controls
+## SDK Contents
+[<img src="./Documentation/Images/LandingPage/GettingStarted.png" width="290" alt="Getting Started">](Assets)
+[<img src="./Documentation/Images/LandingPage/DemoExperience.png" width="290" alt="Demo Experience">](Documentation/DemoExperience)
+[<img src="./Documentation/Images/LandingPage/DesignGuidelines.png" width="290" alt="Design Guidelines">](Documentation/DesignGuidelines)
+[<img src="./Documentation/Images/LandingPage/UnityIntegration.png" width="290" alt="Unity Integration">](Assets/UnitySampleProjects)
+[<img src="./Documentation/Images/LandingPage/UnrealIntegration.png" width="290" alt="Unreal Integration">](Assets/UnrealSampleProject)
+[<img src="./Documentation/Images/LandingPage/Toolkit.png" width="290" alt="Toolkit">](Assets/Toolkit)
+[<img src="./Documentation/Images/LandingPage/Driver.png" width="290" alt="Driver">](Documentation/Driver)
 
-The device features several unique controls, these allow for a large range of potential experiences and interactions.
-The key controls are:
+## Demo Experience
+<img src="./Documentation/Images/LandingPage/DemoBanner.gif"  width="2000" alt="Logitech VR Ink">
 
-![Button Layout](resources/buttonLayout.png)
+We strongly recommend that you try our [demo experience](./Documentation/DemoExperience) after setting up the VR Ink. It showcases several interactions that are unique to the VR Ink.
 
-| Control | Description | Input Type |
-|---|---|---|
-| Analog Button | The Analog Button allows for modulated input that can present a range of values. This can be used for creating variable line widths based on the pressure applied to the button. | Returns Value between 0 - 1 |
-| Analog Tip | The Analog Tip allows for the creation of lines on physical surfaces that are mapped in VR. This can be used to recreate a drawing surface on a desk or a whiteboard. | Returns Value between 0 - 1 |
-| Touch Strip | The Touch Strip allows for the adjustment of a control using up and down swipes. The touch strip is capacitive sensing and has a button to allow for multiple methods of input. | Returns X and Y Value between -1 - 1 The TouchStrip can be clicked |
-| Grip Button | The Grip Button on the sides of the device allow users to intuitively pick objects up in VR, and to scale and move objects using a system controller in the non-dominant hand. | Returns True or False |
-| Menu Button | The Menu Button is a simple switch that allows menus to be opened and closed. The button can be long-pressed to access the 6Dof Gestural Control | Returns True or False |
-| System Button | The System button allows for access to the SteamVR shell. | Returns True or False |
+## Required Software
+| <img src="./Documentation/Images/Logos/SteamLogo.png" width="50" alt="Steam Logo"><br>**SteamVR 1.4.18** |
+|---|
+| This is the minimum required version of SteamVR<br>that fully supports the VR Ink. |
 
-## Repository Contents
-If you don't own a Logitech VR Ink, ask for it [here!](https://www.logitech.com/en-roeu/promo/vr-ink.html)
-
-Available Directly in the Repo:
-
-- [Getting Started on the Logitech VR Ink Integration](/code/GettingStarted.md)
-- [Sample Unity application](code/unity_sample_app) open source showing best practice to integrate the device in your application
-- [Unreal Engine documentation](/code/unreal_sample_project) for device support
-
-Available in the [Release](https://github.com/Logitech/labs_vr_pen_sdk/releases):
-
-- [SteamVR Driver](/code/stylus_driver/ReadMe.md)
-- Unity package source code to be used for the integration of the stylus in your app
-- Unreal Engine full project
-- 3D Models in FBX format with several textures
-
-
-## Setting Up The Stylus
-
-#### Installing the Driver
-Download the Logitech VR Ink driver on the [releases page](https://github.com/Logitech/labs_vr_pen_sdk/releases), make sure SteamVR is closed, run the application and follow the instructions on screen. For more in depth instructions have a look at the [dedicated driver page](/code/stylus_driver/ReadMe.md).
-This will install the Logitech VR Ink driver and add the correct SteamVR render model as well as the the correct SteamVR icons and support for the SteamVR Input Bindings.
+## Get In Touch
+**Partners**
 <br>
-**Note: if SteamVR Home is enabled you will not see the model of the stylus, for that you need to be in the SteamVR Shell**
+If you're looking to partner with us on the VR Ink, please [visit our website](https://www.logitech.com/en-roeu/promo/vr-ink.html#contact) and fill out the contact form.
 
-### Pairing the Stylus
-
-![Pair Pairing](resources/pairStylus.png)
-
+**Feedback**
 <br>
-First turn on the Logitech Stylus by pressing the system button, status LED will go blue. Then you go into SteamVR right click on any controller icon and then select *Pair Controller*. Press both the Menu and Power buttons together, the status LED will blink BLUE, and it will be solid GREEN on the stylus once pairing is complete.
-<br>
-
-### Trying out the Stylus
-You are now ready to go. The stylus should work with existing SteamVR applications in the same was as a Vive controller.
-If you want to try a fully integrated application I recommend you to try out the [Logitech Sample app](resources/ShowcaseApplication/LogitechVRInkShowcase.md) available in the [Release](https://github.com/Logitech/labs_vr_pen_sdk/releases).
-<br>
-You can also get started with the device in Unity by either cloning this repository or downloading the Unity Package available in the [Release](https://github.com/Logitech/labs_vr_pen_sdk/releases).
-
-## Feedback & Bugs
-
-We are working constantly to improve and address issues with the device, so please make sure you have the latest release of SDK installed and running.
-
-We also value your input on:
-- possible bugs
-- shortcomings
-- issues
-- incompatibilities
-
-as well as:
-- enhancements ideas
-- possible new features
-
-We strongly suggest to use our private GitHub repository for bug reports and features requests. Follow this [link](https://github.com/Logitech/labs_vr_pen_sdk/issues) and post it there.
-
-<br>
+We are always working to improve the VR Ink and address issues, we would love to hear your feedback!
+*  [Search for or file a new issue](https://github.com/Logitech/labs_vr_stylus_sdk/issues) if you find any problems with the VR Ink SDK.
+*  If you have any ideas or feature requests regarding the VR Ink SDK, feel free to create an new issue and label it as enhancement
 
 ## License
 Copyright (c) Logitech Corporation. All rights reserved.
 Licensed under the MIT License.
-

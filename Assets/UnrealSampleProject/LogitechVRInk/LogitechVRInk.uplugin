@@ -1,0 +1,30 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "Logitech VR Ink",
+  "Description": "This plugin is to be used as the baseline for integrating the Logitech VR Ink in your Unreal Application",
+  "Category": "Virtual Reality",
+  "CreatedBy": "Logitech",
+  "CreatedByURL": "https://www.logitech.com/en-roeu/promo/vr-ink.html",
+  "DocsURL": "https://github.com/Logitech/labs_vr_stylus_sdk/releases",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "EnabledByDefault": true,
+  "CanContainContent": true,
+  "IsBetaVersion": false,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "LogitechVRInk",
+      "Type": "Runtime",
+      "LoadingPhase": "PostEngineInit"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "SteamVR",
+      "Enabled": true
+    }
+  ]
+}
