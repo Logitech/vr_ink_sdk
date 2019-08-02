@@ -3,7 +3,7 @@
 
 
 ## Design Guidelines
-We recommend that you follow [these design guidelines](Documentation/DesignGuidelines) when integrating or creating interactions for the VR Ink. You can find examples of their implementation in the [VR Ink Toolkit](Assets/Toolkit).
+We recommend that you follow [these design guidelines](../../Documentation/DesignGuidelines) when integrating or creating interactions for the VR Ink. You can find examples of their implementation in the [VR Ink Toolkit](../../Assets/Toolkit).
 
 ## Adding the plugin to your Project
 

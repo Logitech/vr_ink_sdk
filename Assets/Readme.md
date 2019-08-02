@@ -32,6 +32,7 @@ Download the VR Ink Driver Installer from the releases [page](https://github.com
 # Next Steps
 After your VR Ink is set up, we highly recommend that you check out our Demo Experience.
 
-[<img src="../Documentation/Images/LandingPage/DemoExperience.png" width="290" alt="Demo Experience">](Documentation/DemoExperience)
-[<img src="../Documentation/Images/LandingPage/UnityIntegration.png" width="290" alt="Unity Integration">](Assets/UnitySampleProjects)
-[<img src="../Documentation/Images/LandingPage/UnrealIntegration.png" width="290" alt="Unreal Integration">](Assets/UnrealSampleProject)
+[<img src="../Documentation/Images/LandingPage/DemoExperience.png" width="290" alt="Demo Experience">](../Documentation/DemoExperience)
+[<img src="../Documentation/Images/LandingPage/UnityIntegration.png" width="290" alt="Unity Integration">](./UnitySampleProjects)
+[<img src="../Documentation/Images/LandingPage/UnrealIntegration.png" width="290" alt="Unreal Integration">](./UnrealSampleProject)
+
