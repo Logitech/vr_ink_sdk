@@ -86,7 +86,7 @@ We recommend that you use the `IsVRInk()` function in your Pawn blueprint to det
 
 - If you are making a VR Pawn from scratch  you will need to add a public variable to your pawn blueprint to set the Logitech VR Ink in the `Details view`. Your new variable should look like this:
 
-![Logitech Actor Public Variable](../../Documentation/Images/Unreal/actor_class_reference_variable.png)
+    ![Logitech Actor Public Variable](../../Documentation/Images/Unreal/actor_class_reference_variable.png)
 
 - Make sure that you have set a actor to be spawned in the `Details view` and also make sure that you have set the `Auto Possess` field to Player 0.
 

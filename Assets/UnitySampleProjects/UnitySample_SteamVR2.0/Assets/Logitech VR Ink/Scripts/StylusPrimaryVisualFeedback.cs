@@ -11,6 +11,9 @@ namespace LogitechStylus.Scripts
     public class StylusPrimaryVisualFeedback : MonoBehaviour
     {
         [Header("Input")]
+        public bool UseStylusDetection = true;
+        [Tooltip("If not using UseStylusDetection, set the SteamVR input source manually")]
+        public SteamVR_Input_Sources SteamVRInputSource;
         [SerializeField]
         private SteamVR_Action_Single _input;
 
@@ -21,7 +24,9 @@ namespace LogitechStylus.Scripts
 
         private void Update()
         {
-            float mappedPressureValue = _input.GetAxis(LogitechStylusDetection.Instance.VRInkInputSource);
+            SteamVR_Input_Sources inputSource = UseStylusDetection ? LogitechStylusDetection.Instance.VRInkInputSource : SteamVRInputSource;
+
+            float mappedPressureValue = _input.GetAxis(inputSource);
             if (mappedPressureValue > 0)
             {
                 mappedPressureValue = _mappedCurve.Evaluate(mappedPressureValue);

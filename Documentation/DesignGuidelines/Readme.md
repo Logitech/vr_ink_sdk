@@ -2,13 +2,11 @@
 
 There's some design considerations you should take into account when integrating the VR Ink. [Our Toolkit](Assets/Toolkit) goes more in depth regarding specific interactions using the VR Ink, but here we will focus on the general design principles around the VR Ink. Sections in these guidelines refer to the models provided in the SDK, but you may also apply them to your own models if you choose to not use one of the ones provided.
 
-## 3D Model
+## 3D Models
 
 We provide two variations of the VR Ink model in this SDK, one with tracking geometry on the back of the Stylus and one without. These models are split into parts to allow interactions and feedback to be built around each component of the VR Ink. You can download them from the [latest release](https://github.com/Logitech/labs_vr_stylus_sdk/releases).
 
-<p align="center">
 <img src="../../Documentation/Images/DesignGuidelines/VRInkModels.png" width="650" alt="VR Ink models">
-</p>
 
 **We recommend using the simple model** without the tracking the geometry at the back.
 
@@ -24,25 +22,19 @@ The default tip of the VR Ink should show the current active colour, and remains
 
 You cannot show the button travel of the Primary Button as there is virtually none. Instead we recommend that you use a gradual colour fill to represent the pressure applied on the button, from no pressure applied to max pressure. To make it clear when pressure is initially detected, the gradual colour fill should begin at some value larger than 0 in size; it should be visible from little less than arms length (about 50 - 70cm away from the user).
 
-<p align="center">
-<img src="../../Documentation/Images/DesignGuidelines/PrimaryButtonVisualFeedback.gif"  alt="Analog Button Highlight">
-</p>
+![Analog Button Highlight](../../Documentation/Images/DesignGuidelines/PrimaryButtonVisualFeedback.gif)
 
 ### Grip Buttons
 
 Both of the Grip Buttons should highlight when either one is pressed, since their inputs are on the same channel and are indistinguishable from eachother. In most cases a colour fill on the buttons should be suitable to communicate the gripped state.
 
-<p align="center">
-<img src="../../Documentation/Images/DesignGuidelines/ButtonVisualFeedback.gif"  alt="Button Highlight">
-</p>
+![Button Highlight](../../Documentation/Images/DesignGuidelines/ButtonVisualFeedback.gif)
 
 ### Touchstrip
 
 The Touchstrip handles 2 inputs that should be represented: the touch position and click state. The touch position should be represented by a single dot that appears when the touchstrip is touched. This will also help the user navigate to other inputs on the device. Like other digital inputs, a colour fill on the touchstrip represents when it is clicked.
 
-<p align="center">
-<img src="../../Documentation/Images/DesignGuidelines/TouchstripVisualFeedback.gif"  alt="Touchstrip Highlight">
-</p>
+![Touchstrip Highlight](../../Documentation/Images/DesignGuidelines/TouchstripVisualFeedback.gif)
 
 ## UI Interaction
 
@@ -50,11 +42,9 @@ There's a couple of things we have uncover when working with the VR Ink regardin
 
 ### Selection Control
 
-When selecting an element in a UI it is recommended to have a **very low force threshold** on the Primary button. This is to make the whole interaction snappier and to make it easier for the user to interact with several UI elements.
+![Button Highlight](../../Documentation/Images/DesignGuidelines/ButtonVisualFeedback.gif)
 
-<p align="center">
-<img src="../../Documentation/Images/DesignGuidelines/ButtonVisualFeedback.gif"  alt="Button Highlight">
-</p>
+When selecting an element in a UI it is recommended to have a **very low force threshold** on the Primary button. This is to make the whole interaction snappier and to make it easier for the user to interact with several UI elements.
 
 ### Haptics
 

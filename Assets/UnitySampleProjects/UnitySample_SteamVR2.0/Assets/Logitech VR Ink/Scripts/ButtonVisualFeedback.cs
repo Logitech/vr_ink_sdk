@@ -11,6 +11,9 @@ namespace LogitechStylus.Scripts
     public class ButtonVisualFeedback : MonoBehaviour
     {
         [Header("Input")]
+        public bool UseStylusDetection = true;
+        [Tooltip("If not using UseStylusDetection, set the SteamVR input source manually")]
+        public SteamVR_Input_Sources SteamVRInputSource;
         [SerializeField]
         private SteamVR_Action_Boolean _input;
 
@@ -23,7 +26,9 @@ namespace LogitechStylus.Scripts
 
         private void Update()
         {
-            if (_input.GetStateDown(LogitechStylusDetection.Instance.VRInkInputSource))
+            SteamVR_Input_Sources inputSource = UseStylusDetection ? LogitechStylusDetection.Instance.VRInkInputSource : SteamVRInputSource;
+
+            if (_input.GetStateDown(inputSource))
             {
                 var mats = _targerRenderer.sharedMaterials;
                 _defaultMaterial = mats[0];
@@ -31,7 +36,7 @@ namespace LogitechStylus.Scripts
                 _targerRenderer.sharedMaterials = mats;
             }
 
-            if (_input.GetStateUp(LogitechStylusDetection.Instance.VRInkInputSource))
+            if (_input.GetStateUp(inputSource))
             {
                 var mats = _targerRenderer.sharedMaterials;
                 mats[0] = _defaultMaterial;

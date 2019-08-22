@@ -1,4 +1,4 @@
-﻿Shader "Unlit/Transparent Coloured"
+﻿Shader "Logitech/Transparent Coloured"
 {
     Properties
     {
