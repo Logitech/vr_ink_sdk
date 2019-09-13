@@ -1,9 +1,4 @@
-
-# Logitech VR Ink Unreal Engine Integration
-
-
-## Design Guidelines
-We recommend that you follow [these design guidelines](../../Documentation/DesignGuidelines) when integrating or creating interactions for the VR Ink. You can find examples of their implementation in the [VR Ink Toolkit](../../Assets/Toolkit).
+# Integration in Unreal Engine
 
 ## Adding the plugin to your Project
 
@@ -43,7 +38,7 @@ To see the Plugin content in your own project be sure to have checked the `Show 
 
 We provide you with two models of the Logitech VR Ink: a full model with the tracking geometry and a simplified one.
 
-![pen models](../../Documentation/Images/Unreal/pen_models.png)
+![pen models](../../Documentation/Images/Unreal/pen_models.jpg)
 
 **We recommend using the simple model.**
 <br>

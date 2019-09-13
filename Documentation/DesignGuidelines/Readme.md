@@ -6,7 +6,7 @@ There's some design considerations you should take into account when integrating
 
 We provide two variations of the VR Ink model in this SDK, one with tracking geometry on the back of the Stylus and one without. These models are split into parts to allow interactions and feedback to be built around each component of the VR Ink. You can download them from the [latest release](https://github.com/Logitech/labs_vr_stylus_sdk/releases).
 
-<img src="../../Documentation/Images/DesignGuidelines/VRInkModels.png" width="650" alt="VR Ink models">
+<img src="../../Documentation/Images/DesignGuidelines/VRInkModels.jpg" width="650" alt="VR Ink models">
 
 **We recommend using the simple model** without the tracking the geometry at the back.
 
@@ -28,7 +28,7 @@ You cannot show the button travel of the Primary Button as there is virtually no
 
 Both of the Grip Buttons should highlight when either one is pressed, since their inputs are on the same channel and are indistinguishable from eachother. In most cases a colour fill on the buttons should be suitable to communicate the gripped state.
 
-![Button Highlight](../../Documentation/Images/DesignGuidelines/ButtonVisualFeedback.gif)
+![Button Highlight](../../Documentation/Images/DesignGuidelines/GripButtonVisualFeedback.gif)
 
 ### Touchstrip
 

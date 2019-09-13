@@ -1,8 +1,10 @@
 ﻿namespace Logitech.XRToolkit.Components
 {
-    using System.Collections;
     using Logitech.XRToolkit.Utils;
+    using System;
+    using System.Collections;
     using UnityEngine;
+    using UnityEngine.Events;
     using UnityEngine.EventSystems;
     using UnityEngine.UI;
 
@@ -14,31 +16,62 @@
     public abstract class UIInteractable : Interactable
     {
         /// <summary>
+        /// These events can be used to subscribe to UI events in the Inspector.
+        /// </summary>
+        [Serializable]
+        private struct UnityEvents
+        {
+            public UnityEvent OnPressDown;
+            public UnityEvent OnPressUp;
+            public UnityEvent OnPhysicalPressDown;
+            public UnityEvent OnPhysicalPressUp;
+            public UnityEvent OnControllerButtonDown;
+            public UnityEvent OnControllerButtonUp;
+            public UnityEvent OnHoverIn;
+            public UnityEvent OnHoverOut;
+        }
+
+        /// <summary>
         /// These events can be used to externally subscribe to UI events.
         /// </summary>
         public delegate void InteractionEvent();
+        public event InteractionEvent OnPressDown;
+        public event InteractionEvent OnPressUp;
         public event InteractionEvent OnPhysicalPressDown;
         public event InteractionEvent OnPhysicalPressUp;
-        public event InteractionEvent OnButtonDown;
-        public event InteractionEvent OnButtonUp;
+        public event InteractionEvent OnControllerButtonDown;
+        public event InteractionEvent OnControllerButtonUp;
         public event InteractionEvent OnHoverIn;
         public event InteractionEvent OnHoverOut;
 
+        // If the UI element is pressed.
+        [HideInInspector]
+        public bool OnPress;
+        // If the UI element is physically pressed.
         [HideInInspector]
         public bool OnPhysicalPress;
+        // If the UI element is pressed with a controller button.
         [HideInInspector]
-        public bool OnButton;
+        public bool OnControllerButton;
+        // If the UI element is hovered.
         [HideInInspector]
         public bool OnHover;
 
+        [Tooltip("Unity events for usage in the inspector.")]
+        [SerializeField]
+        private UnityEvents _unityEvents;
+
         protected Selectable UIElement;
-        [Tooltip("Allow raycast button interaction.")]
+        [Tooltip("Allow raycast hover events and controller button interaction.")]
         public bool RaycastInteraction = true;
         [Tooltip("Allow physical interaction.")]
         public bool PhysicalInteraction = true;
-        [Tooltip("Allow buffering the press button before hover in?")]
+        [Tooltip("Allow pressing the controller button before hover in?")]
         [SerializeField]
         private bool _allowPressDownBeforeHoverIn = true;
+        [Tooltip("Allow controller button presses while physically pressing the UI, and physical presses while pressing the controller button.")]
+        [SerializeField]
+        private bool _allowSimultaneousButtonAndPhysicalPress = false;
 
         // Required.
         [Space(10)]
@@ -57,33 +90,50 @@
         [Tooltip("The distance the button must reach from its resting position to invoke a click.")]
         [SerializeField, ShowIf("PhysicalInteraction")]
         private float _pressDistanceForClick;
-        [Tooltip("The distance per second that the button will move when raising or returning to its resting position.")]
+        [Tooltip("The local distance per second that the button will move when raising or returning to its resting position.")]
         [SerializeField]
-        private float _animationSpeed = 100f;
-        [Tooltip("The animation speed multiplier for clicking down.")]
+        private float _animationSpeed = 500f;
+        [Tooltip("The local distance per second that the button will move down when raycast clicking.")]
         [SerializeField, ShowIf("RaycastInteraction")]
-        private float _animationSpeedMultiplaier = 1;
+        private float _clickAnimationSpeed = 500f;
 
-        private Coroutine _coroutine;
-
+        private Coroutine _animationCoroutine;
         private PointerEventData _pointerEventData;
 
         private void Start()
         {
             _pointerEventData = new PointerEventData(EventSystem.current);
             _restingPosition = _3DButton.localPosition;
+
+            OnPressDown += () => OnPress = true;
+            OnPressUp += () => OnPress = false;
+
+            OnPhysicalPressDown += () => OnPressDown();
+            OnPhysicalPressUp += () => OnPressUp();
+            OnControllerButtonDown += () => OnPressDown();
+            OnControllerButtonUp += () => OnPressUp();
+
+            OnPressDown += _unityEvents.OnPressDown.Invoke;
+            OnPressUp += _unityEvents.OnPressUp.Invoke;
+            OnPhysicalPressDown += _unityEvents.OnPhysicalPressDown.Invoke;
+            OnPhysicalPressUp += _unityEvents.OnPhysicalPressUp.Invoke;
+            OnControllerButtonDown += _unityEvents.OnControllerButtonDown.Invoke;
+            OnControllerButtonUp += _unityEvents.OnControllerButtonUp.Invoke;
+            OnHoverIn += _unityEvents.OnHoverIn.Invoke;
+            OnHoverOut += _unityEvents.OnHoverOut.Invoke;
         }
 
         public void HoverIn(bool pressed)
         {
             if (RaycastInteraction)
             {
+                OnHover = true;
+
                 if (OnHoverIn != null)
                 {
                     OnHoverIn();
                 }
 
-                OnHover = true;
                 if (UIElement != null)
                 {
                     UIElement.OnPointerEnter(_pointerEventData);
@@ -98,7 +148,7 @@
                     OffsetUIElement();
                 }
 
-                OnHoverInEvent(pressed);
+                OnHoverInEvent(pressed && _allowPressDownBeforeHoverIn);
             }
         }
 
@@ -108,12 +158,17 @@
         {
             if (PhysicalInteraction)
             {
+                if (!_allowSimultaneousButtonAndPhysicalPress && OnControllerButton)
+                {
+                    return;
+                }
+
                 if (!_snapped && isColliding)
                 {
                     _snapped = true;
-                    if (_coroutine != null)
+                    if (_animationCoroutine != null)
                     {
-                        StopCoroutine(_coroutine);
+                        StopCoroutine(_animationCoroutine);
                     }
                 }
                 else if (_snapped && !isColliding)
@@ -127,11 +182,14 @@
                 {
                     PushUIElement(pushPoint);
                 }
+
+                OnHoverEvent(hit, pushPoint, isColliding);
+                return;
             }
 
-            if (PhysicalInteraction || RaycastInteraction)
+            if (RaycastInteraction)
             {
-                OnHoverEvent(hit, pushPoint, isColliding);
+                OnHoverEvent(hit, pushPoint, false);
             }
         }
 
@@ -141,25 +199,27 @@
         {
             if (RaycastInteraction)
             {
+                OnHover = false;
+
                 if (OnHoverOut != null)
                 {
                     OnHoverOut();
                 }
 
-                OnHover = false;
                 if (UIElement != null)
                 {
                     UIElement.OnPointerExit(_pointerEventData);
                 }
 
-                if (OnButton)
+                if (OnControllerButton)
                 {
-                    if (OnButtonUp != null)
+                    OnControllerButton = false;
+
+                    if (OnControllerButtonUp != null)
                     {
-                        OnButtonUp();
+                        OnControllerButtonUp();
                     }
 
-                    OnButton = false;
                     if (UIElement != null)
                     {
                         UIElement.OnPointerUp(_pointerEventData);
@@ -184,29 +244,37 @@
 
         public void ButtonDown()
         {
-            if (RaycastInteraction)
+            if (!RaycastInteraction)
             {
-                if (OnButtonDown != null)
-                {
-                    OnButtonDown();
-                }
-
-                OnButton = true;
-                if (UIElement != null)
-                {
-                    UIElement.OnPointerDown(_pointerEventData);
-                }
-
-                MoveUIElementToZPosition(_restingPosition.z + _maxPressDistance, _animationSpeed * _animationSpeedMultiplaier);
-                OnButtonDownEvent();
+                return;
             }
+
+            if (!_allowSimultaneousButtonAndPhysicalPress && OnPhysicalPress)
+            {
+                return;
+            }
+
+            OnControllerButton = true;
+
+            if (OnControllerButtonDown != null)
+            {
+                OnControllerButtonDown();
+            }
+
+            if (UIElement != null)
+            {
+                UIElement.OnPointerDown(_pointerEventData);
+            }
+
+            MoveUIElementToZPosition(_restingPosition.z + _maxPressDistance, _clickAnimationSpeed);
+            OnButtonDownEvent();
         }
 
         protected virtual void OnButtonDownEvent() { }
 
         public void Button(RaycastHit hit)
         {
-            if (RaycastInteraction && OnButton)
+            if (RaycastInteraction && OnControllerButton)
             {
                 OnButtonEvent(hit);
             }
@@ -218,14 +286,15 @@
         {
             if (RaycastInteraction)
             {
-                if (OnButton)
+                if (OnControllerButton)
                 {
-                    if (OnButtonUp != null)
+                    OnControllerButton = false;
+
+                    if (OnControllerButtonUp != null)
                     {
-                        OnButtonUp();
+                        OnControllerButtonUp();
                     }
 
-                    OnButton = false;
                     if (UIElement != null && !OnPhysicalPress)
                     {
                         UIElement.OnPointerUp(_pointerEventData);
@@ -267,12 +336,13 @@
             }
             else if (!OnPhysicalPress && adjustDistance >= _restingPosition.z + _pressDistanceForClick)
             {
+                OnPhysicalPress = true;
+
                 if (OnPhysicalPressDown != null)
                 {
                     OnPhysicalPressDown();
                 }
 
-                OnPhysicalPress = true;
                 if (UIElement != null)
                 {
                     UIElement.OnPointerDown(_pointerEventData);
@@ -287,38 +357,42 @@
                 return;
             }
 
+            OnPhysicalPress = false;
+
             if (OnPhysicalPressUp != null)
             {
                 OnPhysicalPressUp();
             }
 
-            OnPhysicalPress = false;
-            if (UIElement != null && !OnButton)
+            if (UIElement != null && !OnControllerButton)
             {
                 UIElement.OnPointerUp(_pointerEventData);
             }
         }
 
-        private void OffsetUIElement()
+        /// <summary>
+        /// Raise the UI Element to show it can be interacted with.
+        /// </summary>
+        public void OffsetUIElement()
         {
-            if (_coroutine != null)
+            if (_animationCoroutine != null)
             {
-                StopCoroutine(_coroutine);
+                StopCoroutine(_animationCoroutine);
             }
 
-            _coroutine = StartCoroutine(MoveToLocalZPosition(_3DButton, _restingPosition.z + _highlightRaiseOffset, _animationSpeed));
+            _animationCoroutine = StartCoroutine(MoveToLocalZPosition(_3DButton, _restingPosition.z + _highlightRaiseOffset, _animationSpeed));
         }
 
         private void MoveUIElementToZPosition(float zPosition, float animationSpeed)
         {
-            if (_coroutine != null)
+            if (_animationCoroutine != null)
             {
-                StopCoroutine(_coroutine);
+                StopCoroutine(_animationCoroutine);
             }
 
             if (gameObject.activeInHierarchy && _3DButton.gameObject.activeSelf)
             {
-                _coroutine = StartCoroutine(MoveToLocalZPosition(_3DButton, zPosition, animationSpeed));
+                _animationCoroutine = StartCoroutine(MoveToLocalZPosition(_3DButton, zPosition, animationSpeed));
             }
             else
             {

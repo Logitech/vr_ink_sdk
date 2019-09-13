@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "logitechtoolkit",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\Logitech\\VRInkSDK\\Assets\\Toolkit\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "LogitechToolkit [Testing]"
+        }
+      }
+    }
+  ]
+}

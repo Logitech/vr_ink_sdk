@@ -1,10 +1,7 @@
+# Integration in Unity using Legacy SteamVR Input
 **This Unity Project works with the deprecated [SteamVR Plugin](https://github.com/ValveSoftware/steamvr_unity_plugin/releases/tag/1.2.3).**  It does not support SteamVR Input 2.0 and action maps.
+<br><br>
 
-# Logitech VR Ink Unity Integration
-
-## Design Guidelines
-
-We recommend that you follow [these design guidelines](../../../Documentation/DesignGuidelines) when integrating or creating interactions for the VR Ink. You can find examples of their implementation in the [VR Ink Toolkit](../../../Assets/Toolkit).
 
 ## Adding Logitech VR Ink to your project
 
@@ -32,7 +29,7 @@ The following section will go trough the contents of the three sample scenes we 
 Open the scene `Logitech VR Ink Models`.
 This is a very minimal scene where you can find the models that we share with the SDK.
 
-![Logitech VR Ink Models](../../../Documentation/Images/UnitySampleLegacy/LogitechVRInk.png)
+![Logitech VR Ink Models](../../../Documentation/Images/DesignGuidelines/VRInkModels.jpg)
 
 **We recommend using the simple model** without the tracking the geometry at the back.
 <br>
@@ -68,13 +65,13 @@ To detect that the Logitech VR Ink is connected when you start up your applicati
 
 We recommend that you use the **ModelNumber_String property** to detect if the pen is connected. You can detect if the VR Ink is connected using the *logitech_* string. When you have the game window in focus you can **press P** on the keyboard to print the different property strings in the Unity console.
 
-## Logitech VR Ink Grip Pose VS Pointer Pose
+## Grip Pose VS Pointer Pose
 
 It is important to be familiar with the Microsoft documentation ( [grip vs pointer pose](https://docs.microsoft.com/en-us/windows/mixed-reality/gestures-and-motion-controllers-in-unity#grip-pose-vs-pointing-pose)) regarding the different type of poses that you could define for a 6DOF controller. This document references **Pointer Pose & Grip Pose** through the rest of the content.
 
 <br>
 
-In the scene `Logitech VR Ink Grip Pose VS Pointer Pose`, you  `Pointer pose` and `Grip Pose` in the hierarchy under the `[CameraRig]`. If your application **displays real hands** it is recommended to use the `Grip Pose` transform to display the 3D model of the hands.
+In the scene `Logitech VR Ink Grip Pose VS Pointer Pose`, you see `Pointer pose` and `Grip Pose` in the hierarchy under the `[CameraRig]`. If your application **displays real hands** it is recommended to use the `Grip Pose` transform to display the 3D model of the hands.
 
 The Grip pose for the VR Ink is defined as in the screenshot below:
 

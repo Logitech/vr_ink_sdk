@@ -32,19 +32,13 @@
                   }
                },
                "mode" : "button",
+               "parameters" : {
+                  "haptic_amplitude" : "0"
+               },
                "path" : "/user/hand/left/input/menu"
             },
             {
                "inputs" : {
-                  "click" : {
-                     "output" : "/actions/logitechtoolkit/in/menuclick"
-                  }
-               },
-               "mode" : "button",
-               "path" : "/user/hand/right/input/menu"
-            },
-            {
-               "inputs" : {
                   "force" : {
                      "output" : "/actions/logitechtoolkit/in/primarypressure"
                   }
@@ -54,30 +48,15 @@
             },
             {
                "inputs" : {
-                  "force" : {
-                     "output" : "/actions/logitechtoolkit/in/primarypressure"
-                  }
-               },
-               "mode" : "force_sensor",
-               "path" : "/user/hand/right/input/primary"
-            },
-            {
-               "inputs" : {
                   "click" : {
                      "output" : "/actions/logitechtoolkit/in/primaryclick"
                   }
                },
                "mode" : "button",
+               "parameters" : {
+                  "haptic_amplitude" : "0"
+               },
                "path" : "/user/hand/left/input/primary"
-            },
-            {
-               "inputs" : {
-                  "click" : {
-                     "output" : "/actions/logitechtoolkit/in/primaryclick"
-                  }
-               },
-               "mode" : "button",
-               "path" : "/user/hand/right/input/primary"
             },
             {
                "inputs" : {
@@ -90,33 +69,18 @@
             },
             {
                "inputs" : {
-                  "force" : {
-                     "output" : "/actions/logitechtoolkit/in/tippressure"
-                  }
-               },
-               "mode" : "force_sensor",
-               "path" : "/user/hand/right/input/tip"
-            },
-            {
-               "inputs" : {
                   "click" : {
                      "output" : "/actions/logitechtoolkit/in/tipclick"
                   }
                },
                "mode" : "button",
+               "parameters" : {
+                  "haptic_amplitude" : "0"
+               },
                "path" : "/user/hand/left/input/tip"
             },
             {
                "inputs" : {
-                  "click" : {
-                     "output" : "/actions/logitechtoolkit/in/tipclick"
-                  }
-               },
-               "mode" : "button",
-               "path" : "/user/hand/right/input/tip"
-            },
-            {
-               "inputs" : {
                   "force" : {
                      "output" : "/actions/logitechtoolkit/in/grippressure"
                   }
@@ -126,30 +90,15 @@
             },
             {
                "inputs" : {
-                  "force" : {
-                     "output" : "/actions/logitechtoolkit/in/grippressure"
-                  }
-               },
-               "mode" : "force_sensor",
-               "path" : "/user/hand/right/input/grip"
-            },
-            {
-               "inputs" : {
                   "click" : {
                      "output" : "/actions/logitechtoolkit/in/gripclick"
                   }
                },
                "mode" : "button",
+               "parameters" : {
+                  "haptic_amplitude" : "0"
+               },
                "path" : "/user/hand/left/input/grip"
-            },
-            {
-               "inputs" : {
-                  "click" : {
-                     "output" : "/actions/logitechtoolkit/in/gripclick"
-                  }
-               },
-               "mode" : "button",
-               "path" : "/user/hand/right/input/grip"
             },
             {
                "inputs" : {
@@ -165,6 +114,81 @@
                },
                "mode" : "trackpad",
                "path" : "/user/hand/left/input/touchstrip"
+            },
+            {
+               "inputs" : {
+                  "force" : {
+                     "output" : "/actions/logitechtoolkit/in/grippressure"
+                  }
+               },
+               "mode" : "force_sensor",
+               "path" : "/user/hand/right/input/grip"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/logitechtoolkit/in/gripclick"
+                  }
+               },
+               "mode" : "button",
+               "parameters" : {
+                  "haptic_amplitude" : "0"
+               },
+               "path" : "/user/hand/right/input/grip"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/logitechtoolkit/in/menuclick"
+                  }
+               },
+               "mode" : "button",
+               "parameters" : {
+                  "haptic_amplitude" : "0"
+               },
+               "path" : "/user/hand/right/input/menu"
+            },
+            {
+               "inputs" : {
+                  "force" : {
+                     "output" : "/actions/logitechtoolkit/in/primarypressure"
+                  }
+               },
+               "mode" : "force_sensor",
+               "path" : "/user/hand/right/input/primary"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/logitechtoolkit/in/primaryclick"
+                  }
+               },
+               "mode" : "button",
+               "parameters" : {
+                  "haptic_amplitude" : "0"
+               },
+               "path" : "/user/hand/right/input/primary"
+            },
+            {
+               "inputs" : {
+                  "force" : {
+                     "output" : "/actions/logitechtoolkit/in/tippressure"
+                  }
+               },
+               "mode" : "force_sensor",
+               "path" : "/user/hand/right/input/tip"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/logitechtoolkit/in/tipclick"
+                  }
+               },
+               "mode" : "button",
+               "parameters" : {
+                  "haptic_amplitude" : "0"
+               },
+               "path" : "/user/hand/right/input/tip"
             },
             {
                "inputs" : {
@@ -187,7 +211,7 @@
    "category" : "steamvr_input",
    "controller_type" : "logitech_stylus",
    "description" : "Default bindings for the Logitech VR Ink.",
-   "name" : "Logitech VR Ink",
+   "name" : "My LogitechToolkit [Testing] configuration for Logitech Stylus",
    "options" : {},
    "simulated_actions" : []
 }

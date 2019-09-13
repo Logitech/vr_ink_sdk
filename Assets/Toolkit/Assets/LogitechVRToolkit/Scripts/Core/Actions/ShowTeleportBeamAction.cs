@@ -1,10 +1,13 @@
 ﻿namespace Logitech.XRToolkit.Actions
 {
-    using Action = Logitech.XRToolkit.Core.Action;
+    using System;
+
     using Logitech.XRToolkit.Components;
     using Logitech.XRToolkit.Providers;
-    using System;
+
     using UnityEngine;
+
+    using Action = Logitech.XRToolkit.Core.Action;
 
     /// <summary>
     /// Create and show a teleportation beam.
@@ -12,10 +15,12 @@
     [Serializable]
     public class ShowTeleportBeamAction : Action
     {
-        [HideInInspector]
+        [SerializeField]
         public TrackedDeviceProvider TrackedDevice;
+
         [SerializeField]
         private TeleportBeamType _teleportBeamType;
+
         [SerializeField]
         private float _beamLength;
 
@@ -30,11 +35,11 @@
         /// </summary>
         protected override void OnTriggerValid()
         {
-            if (TeleportBeam == null)
+            if (TeleportBeam == null || TrackedDevice.GetOutput().gameObject.GetComponent<TeleportBeam>() == null)
             {
                 TeleportBeam = TrackedDevice.GetOutput().gameObject.AddComponent<TeleportBeam>();
             }
-
+            TeleportBeam = TrackedDevice.GetOutput().gameObject.GetComponent<TeleportBeam>();
             TeleportBeam.TeleportEnabled = true;
         }
 

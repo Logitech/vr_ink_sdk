@@ -76,7 +76,7 @@
 
         private void SetCurrentHapticTick()
         {
-            Debug.Assert(_hapticTickRate <= 100, "Haptic tick rate is equal to or larger than 100% and therefore may never trigger!");
+            Debug.Assert(_hapticTickRate <= 100, "Haptic tick rate is larger than 100% and therefore may never trigger!");
 
             var tickValue = _hapticTickRate * (_slider.maxValue / 100);
             var currentTickIndex = _slider.value / tickValue;

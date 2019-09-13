@@ -18,28 +18,41 @@
         private int _shakeCount = 0;
 
         // Movements under X m/s are disregarded.
-        private const float VelocityThreshold = 2f;
+        private const float VelocityThreshold = 0.8f;
         // One 'shake' every X seconds maximum.
-        private const float MaxDeltaTime = 0.05f;
+        private const float MaxDeltaTime = 0.09f;
         // X shakes to trigger.
-        private const int ShakeCountThreshold = 4;
+        private const int ShakeCountThreshold = 3;
+        // The X shakes have to happen undet Y seconds.
+        private const float MaxAllShakeDeltaTime = 0.8f;
+        // Minimum time between 2 trigger in seconds.
+        private const float TimeBetweenTrigger = 1.5f;
+        private float _lastTriggerTime = 0f;
 
         public override bool IsValid()
         {
-            var positionThisFrame = _source.position;
-            var movement = positionThisFrame - _positionLastFrame;
-            var velocity = movement.magnitude / Time.deltaTime;
+            if (Time.time - _lastTriggerTime < TimeBetweenTrigger)
+            {
+                return false;
+            }
+            Vector3 positionThisFrame = _source.position;
+            Vector3 movement = positionThisFrame - _positionLastFrame;
+            float velocity = movement.magnitude / Time.deltaTime;
 
             // If we go fast enough.
             if (velocity > VelocityThreshold)
             {
                 // If we changed direction.
-                if (Vector3.Dot(movement.normalized, _lastMovementDirection) > 0f)
+                if (Vector3.Dot(movement.normalized, _lastMovementDirection) < 0f)
                 {
                     // If we did so not too long ago.
                     if (Time.time - _lastMovementChangeTime < MaxDeltaTime)
                     {
                         _shakeCount++;
+                    }
+                    else if (Time.time - _lastMovementChangeTime > MaxAllShakeDeltaTime)
+                    {
+                        _shakeCount = 0;
                     }
                     // Set the current time as the new point in time to compare against.
                     _lastMovementChangeTime = Time.time;
@@ -52,6 +65,7 @@
             if (_shakeCount >= ShakeCountThreshold)
             {
                 _shakeCount = 0;
+                _lastTriggerTime = Time.time;
                 return true;
             }
 

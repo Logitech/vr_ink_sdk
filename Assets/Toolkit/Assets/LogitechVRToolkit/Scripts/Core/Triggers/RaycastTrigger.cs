@@ -38,7 +38,11 @@
 
         public override bool IsValid()
         {
-            if (_useRaycastAll) return RaycastAll();
+            if (_useRaycastAll)
+            {
+                return RaycastAll();
+            }
+
             return SingleRaycast();
         }
 
@@ -58,34 +62,46 @@
             foreach (var hit in hits)
             {
                 var interactable = hit.transform.GetComponent<Interactable>();
-                if (interactable == null) continue;
+                if (interactable == null)
+                {
+                    continue;
+                }
+
                 if (interactable.ContainsTag(Tag))
                 {
                     RaycastHit = hit;
                     return true;
                 }
             }
+
             return false;
         }
 
         private bool SingleRaycast()
         {
             RaycastHit hit;
-            bool IsHitting;
+            bool isHitting;
             if (RaycastRay.origin != Vector3.zero)
             {
-                IsHitting = Physics.Raycast(RaycastRay, out hit, MaxDistance);
+                isHitting = Physics.Raycast(RaycastRay, out hit, MaxDistance);
             }
             else
             {
                 Vector3 position = Source.position + Source.forward * Offset;
-                IsHitting = Physics.Raycast(position, Source.forward, out hit, MaxDistance);
+                isHitting = Physics.Raycast(position, Source.forward, out hit, MaxDistance);
             }
 
-            if (!IsHitting) return false;
+            if (!isHitting)
+            {
+                return false;
+            }
 
             var interactable = hit.transform.GetComponent<Interactable>();
-            if (interactable == null) return false;
+            if (interactable == null)
+            {
+                return false;
+            }
+
             if (interactable.ContainsTag(Tag))
             {
                 RaycastHit = hit;

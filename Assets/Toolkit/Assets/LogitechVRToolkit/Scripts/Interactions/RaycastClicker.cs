@@ -78,7 +78,14 @@
                     _hoveredElement.HoverIn(_onButtonTrigger.IsValid());
                 }
 
-                _hoveredElement.Hover(_raycastCollisionTrigger.RaycastHit, transform, _raycastCollisionTrigger.IsValid());
+                if (_raycastCollisionTrigger.IsValid())
+                {
+                    _hoveredElement.Hover(_raycastCollisionTrigger.RaycastHit, transform, true);
+                }
+                else
+                {
+                    _hoveredElement.Hover(_raycastCollisionTrigger.RaycastHit, transform, false);
+                }
 
                 // Update ray.
                 Vector3[] positions = { transform.position, transform.position + transform.forward * (hit.distance + _raycastTrigger.Offset) };

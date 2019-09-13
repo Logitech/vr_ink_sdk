@@ -20,14 +20,17 @@
         [Header("Device To Draw With")]
         [SerializeField]
         private TrackedDeviceTransformProvider _trackedDeviceProvider;
+
         [Header("Line Settings")]
         [SerializeField]
         private bool _useAnalog = true;
+
         [SerializeField, ShowIf("_useAnalog")]
         private AxisValueProvider _lineWidthProvider;
 
         [SerializeField]
         private Material _lineMaterial;
+
         private Provider<float> _maxLineWidth = new FunctionProvider<float>(() => DrawingVariables.Instance.LineMaxWidth * DrawingVariables.AirWidthModifier);
         private Provider<Color> _colorProvider = new FunctionProvider<Color>(() => DrawingVariables.Instance.Colour);
 
@@ -35,8 +38,10 @@
 
         private float _timer = 0f;
         private LineRenderer _currentLine = null;
+
         [SerializeField]
         private Transform _drawingParent;
+
         private WidthCurve _currentWidthCurve;
         private Vector3 _lastPosition;
         private const float MinimalDrawingDistance = 0.001f;
@@ -44,8 +49,10 @@
         [Header("Line Smoothing")]
         [SerializeField]
         private bool _isSmoothingActive = false;
+
         [SerializeField, Range(0, 11)]
         private int _windowSize = 2;
+
         private Vector3[] _lastPositionsBuffer;
 
         /// <summary>
@@ -70,11 +77,10 @@
         protected override void TriggerValid()
         {
             Debug.Assert(_currentLine != null, "If we are already drawing there should be a current line");
-            _timer -= Time.deltaTime;
-            if (_timer < 0f)
+            if (_timer < Time.time)
             {
                 // Reset timer
-                _timer = TimeInterval;
+                _timer = Time.time;
 
                 // Add a point to the current line
                 // TODO: provide a way to add an offset to the position (either by Provider<Transform> or built-in Vector3)
@@ -126,7 +132,6 @@
                 AddPoint(lineRenderer, _currentWidthCurve, position, 0f);
             }
 
-
             _currentLine = lineRenderer;
         }
 
@@ -148,7 +153,6 @@
 
         private void AddMeanPoint(LineRenderer line, WidthCurve curve, Vector3 newPosition, float width)
         {
-
             float distance = Vector3.Distance(_lastPosition, newPosition);
             if (distance < MinimalDrawingDistance && curve.Distances.Count > 0)
             {

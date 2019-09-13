@@ -1,7 +1,9 @@
 ﻿namespace Logitech.XRToolkit.Components
 {
-    using Logitech.XRToolkit.IO;
     using System.Collections.Generic;
+
+    using Logitech.XRToolkit.IO;
+
     using UnityEngine;
 
     public enum TeleportBeamType
@@ -21,6 +23,7 @@
 
         // TODO this will fail if not 0, needs fix.
         private const float OffsetAngle = 0f;
+
         public float OffsetForwardOrigin = 0.01f;
         public float OffsetHeightOrigin = 0f;
         public float ArcRadius = 10;
@@ -43,7 +46,7 @@
         /// </summary>
         private void OnEnable()
         {
-            var colour = Resources.Load<Material>("Teleport/Materials/TeleportBodyMat").color;
+            Color colour = Resources.Load<Material>("Teleport/Materials/TeleportBodyMat").color;
             colour.a = 1f;
 
             if (_landingArea == null)
@@ -62,7 +65,7 @@
             }
         }
 
-        void LateUpdate()
+        private void LateUpdate()
         {
             if (TeleportEnabled)
             {
@@ -110,31 +113,30 @@
             {
                 ArcRadius = transform.position.y + 0.02f;
             }
-            Debug.Assert(GetComponent<TrackedDevice>() != null);
 
             // Get the angle of the controller where pointing the ground is 0 and increasing while going from pointing the ground to the sky.
-            var initialAngle = Mathf.Deg2Rad * (transform.localEulerAngles.x) + Mathf.PI / 2;
+            float initialAngle = (Mathf.Deg2Rad * transform.localEulerAngles.x) + (Mathf.PI / 2);
             initialAngle = initialAngle > Mathf.PI ? initialAngle - (Mathf.PI * 2) : initialAngle;
             initialAngle = Mathf.PI - initialAngle + OffsetAngle;
 
             // Get the angle of the arc starting from the Stylus and hitting the ground.
-            var opposedSide = Mathf.Abs(Mathf.Sin(initialAngle) * ArcRadius - transform.position.y);
-            var finalAngle = Mathf.Asin(opposedSide / ArcRadius);
+            float opposedSide = Mathf.Abs((Mathf.Sin(initialAngle) * ArcRadius) - transform.position.y);
+            float finalAngle = Mathf.Asin(opposedSide / ArcRadius);
 
             // Get the initial x value of the arc.
-            var startX = Mathf.Cos(initialAngle) * ArcRadius;
+            float startX = Mathf.Cos(initialAngle) * ArcRadius;
 
-            var beamOrigin = transform.position + transform.forward * OffsetForwardOrigin + new Vector3(0f, OffsetHeightOrigin, 0f);
+            Vector3 beamOrigin = transform.position + (transform.forward * OffsetForwardOrigin) + new Vector3(0f, OffsetHeightOrigin, 0f);
             _beamPoints.Add(beamOrigin);
 
             // Generate the points used in the Bezier curve.
-            var beamMaxDistance = Mathf.Cos(finalAngle) * ArcRadius - startX;
-            var controlPoint = beamOrigin + (transform.forward * (beamMaxDistance / 2));
-            var endPoint = beamOrigin + (transform.forward * beamMaxDistance);
+            float beamMaxDistance = (Mathf.Cos(finalAngle) * ArcRadius) - startX;
+            Vector3 controlPoint = beamOrigin + (transform.forward * (beamMaxDistance / 2));
+            Vector3 endPoint = beamOrigin + (transform.forward * beamMaxDistance);
             endPoint.y = OffsetFromGround;
 
-            var stepping = 1f / ArcPointCount;
-            for (var i = 0f; i < 1f; i += stepping)
+            float stepping = 1f / ArcPointCount;
+            for (float i = 0f; i < 1f; i += stepping)
             {
                 var firstSegment = Vector3.Lerp(beamOrigin, controlPoint, i);
                 var secondSegment = Vector3.Lerp(controlPoint, endPoint, i);
@@ -152,20 +154,19 @@
         private void UpdateLineValue()
         {
             _lineRenderer.positionCount = LinePointCount;
-            Debug.Assert(GetComponent<TrackedDevice>() != null);
             // Do nothing if the Stylus doesn't point towards the ground.
             _beamPoints.Clear();
             if (transform.localEulerAngles.x > _planeAngleThreshold)
             {
                 var ray = new Ray(transform.position, transform.forward);
                 var hPlane = new Plane(Vector3.up, Vector3.zero);
-                var distance = 0f;
+                float distance = 0f;
 
                 if (hPlane.Raycast(ray, out distance))
                 {
                     // Get the hit point.
                     _landingPos = ray.GetPoint(distance);
-                    var beamOrigin = transform.position + transform.forward * OffsetForwardOrigin + new Vector3(0f, OffsetHeightOrigin, 0f);
+                    Vector3 beamOrigin = transform.position + (transform.forward * OffsetForwardOrigin) + new Vector3(0f, OffsetHeightOrigin, 0f);
                     _beamPoints.Add(beamOrigin);
                     _beamPoints.Add(_landingPos);
                 }
@@ -180,7 +181,7 @@
 
         private void UpdateLandingArea()
         {
-            var landingPos = GetBeamHitPoint();
+            Vector3 landingPos = GetBeamHitPoint();
             landingPos.y = OffsetFromGround;
 
             _landingArea.transform.position = landingPos;
@@ -196,7 +197,7 @@
                 _landingArea.transform.parent = gameObject.transform;
                 _landingArea.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
                 _landingArea.transform.position = new Vector3(0, 0, 0);
-                var landingSprite = _landingArea.AddComponent<SpriteRenderer>();
+                SpriteRenderer landingSprite = _landingArea.AddComponent<SpriteRenderer>();
                 landingSprite.sprite = Resources.Load<Sprite>("Teleport/Sprites/teleportTarget");
                 landingSprite.color = colour;
                 landingSprite.sortingOrder = 1;
@@ -209,7 +210,7 @@
                 _landingAreaBody.transform.localScale = new Vector3(4.5f, 2f, 4.5f);
                 _landingAreaBody.transform.position = new Vector3(0f, 0f, 0f);
                 _landingAreaBody.transform.eulerAngles = new Vector3(-90f, 0f, 0f);
-                var landingBodyMeshRenderer = _landingAreaBody.GetComponentInChildren<MeshRenderer>();
+                MeshRenderer landingBodyMeshRenderer = _landingAreaBody.GetComponentInChildren<MeshRenderer>();
                 landingBodyMeshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
                 landingBodyMeshRenderer.material = Resources.Load<Material>("Teleport/Materials/TeleportBodyMat");
                 landingBodyMeshRenderer.sortingOrder = 1;

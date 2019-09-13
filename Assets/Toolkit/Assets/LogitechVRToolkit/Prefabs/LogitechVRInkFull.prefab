@@ -989,8 +989,8 @@ MonoBehaviour:
   _snappingTag: 16
   _enableHaptics: 1
   _vibrationOnSnap:
-    _durationInSeconds: 0.1
-    _frequency: 10
+    _durationInSeconds: 0.001
+    _frequency: 100
     _amplitude: 0.1
     _trackedDeviceProvider:
       TrackedDevice: 0

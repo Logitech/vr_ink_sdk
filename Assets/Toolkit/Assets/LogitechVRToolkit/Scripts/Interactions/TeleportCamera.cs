@@ -1,11 +1,12 @@
 ﻿namespace Logitech.XRToolkit.Interactions
 {
-    using Logitech.XRToolkit.Actions;
-    using Logitech.XRToolkit.Providers;
-    using Logitech.XRToolkit.Triggers;
-    using Logitech.XRToolkit.Components;
-    using UnityEngine;
     using System.Collections;
+
+    using Logitech.XRToolkit.Actions;
+    using Logitech.XRToolkit.Components;
+    using Logitech.XRToolkit.Triggers;
+
+    using UnityEngine;
 
     /// <summary>
     /// Shows a teleportation beam and teleports the main camera to the beam target location.
@@ -13,23 +14,25 @@
     public class TeleportCamera : MonoBehaviour
     {
         [SerializeField]
-        private TrackedDeviceProvider _trackedDevice;
+        private float _fadeInDuration = 0.3f;
 
         [SerializeField]
-        private float _fadeInDuration = 0.3f;
-        [SerializeField]
         private float _fadeOutDuration = 0.3f;
+
         private Renderer _fadeQuadRenderer;
+
         [SerializeField]
         private Material _fadeMaterial;
 
         [SerializeField]
         private InputTrigger _showBeamTrigger;
-        [SerializeField]
-        private InputTrigger _teleportTrigger;
 
         [SerializeField]
         private ShowTeleportBeamAction _showBeamAction;
+
+        [SerializeField]
+        private InputTrigger _teleportTrigger;
+
         [SerializeField]
         private TeleportAction _teleportAction;
 
@@ -43,22 +46,17 @@
         /// </summary>
         private void Start()
         {
-            _showBeamAction.TrackedDevice = _trackedDevice;
-
             SetUpFadeQuad();
-            _teleportBeam = _trackedDevice.GetOutput().gameObject.AddComponent<TeleportBeam>();
-            _showBeamAction.TeleportBeam = _teleportBeam;
-            _teleportAction.TeleportBeam = _teleportBeam;
         }
 
         private void SetUpFadeQuad()
         {
             GameObject fadeQuad = null;
 
-            var mainCamera = _teleportAction.CameraParentTransform.GetComponentInChildren<Camera>();
+            Camera mainCamera = _teleportAction.CameraParentTransform.GetComponentInChildren<Camera>();
             Debug.Assert(mainCamera != null, "No camera is child of " + _teleportAction.CameraParentTransform.name);
 
-            foreach (var mesh in mainCamera.GetComponentsInChildren<MeshFilter>())
+            foreach (MeshFilter mesh in mainCamera.GetComponentsInChildren<MeshFilter>())
             {
                 if (mesh.gameObject.name == "FadeQuad")
                 {
@@ -82,6 +80,10 @@
 
         private void Update()
         {
+            if (_teleportBeam == null)
+            {
+                _teleportBeam = _showBeamAction.TeleportBeam;
+            }
             _showBeamAction.Update(_showBeamTrigger.IsValid() && !_teleporting);
             if (_teleportTrigger.IsValid() && _showBeamAction.TeleportBeam.IsValid() && _coroutine == null)
             {
@@ -93,7 +95,7 @@
         {
             _teleporting = true;
             Color startAlpha = _fadeQuadRenderer.material.color;
-            Color targetAlpha = new Color(0, 0, 0, 1);
+            var targetAlpha = new Color(0, 0, 0, 1);
 
             float currentTime = 0;
             while (currentTime < 1)
@@ -102,7 +104,7 @@
                 _fadeQuadRenderer.material.color = Color.Lerp(startAlpha, targetAlpha, currentTime);
                 yield return null;
             }
-
+            _teleportAction.UpdateLocation(_showBeamAction.TeleportBeam.GetBeamHitPoint());
             _teleportAction.TriggerOnce();
             _teleporting = false;
             currentTime = 0;

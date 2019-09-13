@@ -24,6 +24,8 @@
         [SerializeField]
         private bool _highlightGrabTarget;
         [SerializeField, ShowIf("_highlightGrabTarget")]
+        private EInteractable _highlightTag = EInteractable.Highlight;
+        [SerializeField, ShowIf("_highlightGrabTarget")]
         private float _baseHighlightSize = 1.02f;
         [SerializeField, ShowIf("_highlightGrabTarget")]
         private float _grabHighlightSize = 1.05f;
@@ -99,7 +101,7 @@
                 _highlightAction.Update(_collisionTrigger.IsValid());
                 if (_collisionTrigger.IsValid())
                 {
-                    if (_collisionTrigger.CollidedTransform.GetComponent<CollisionInteractable>().ContainsTag(EInteractable.Highlight))
+                    if (_collisionTrigger.CollidedTransform.GetComponent<CollisionInteractable>().ContainsTag(_highlightTag))
                     {
                         _highlightAction.ObjectToHighlight = _collisionTrigger.CollidedTransform;
                         _highlightAction.SetCurrentHighlightOutline(_baseHighlightSize);

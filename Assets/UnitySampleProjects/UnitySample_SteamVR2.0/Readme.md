@@ -1,11 +1,8 @@
+# Integration in Unity using SteamVR 2.0 Input System
 **This Unity Project works with the newer [SteamVR 2.0 input system](https://github.com/ValveSoftware/steamvr_unity_plugin/releases/tag/2.2.0).**
 <br>
 We use the SteamVR Unity plugin version 2.2.0 here, but it should work with newer versions too.
 
-# Logitech VR Ink Unity Integration
-
-## Design Guidelines
-We recommend that you follow [these design guidelines](../../../Documentation/DesignGuidelines) when integrating or creating interactions for the VR Ink. You can find examples of their implementation in the [VR Ink Toolkit](../../../Documentation/DesignGuidelines).
 
 ## Adding Logitech VR Ink to your project
 This example has been developed and tested using Unity LTS 2017, but it should also work with newer versions of the engine.
@@ -31,7 +28,7 @@ All the useful content is contained in the `Logitech VR Ink` folder, this will m
 Open the scene `LogitechVRInkModels`.
 This is a very minimal scene where you can find the models that we share with the SDK.
 
-![Logitech VR Ink Models](../../../Documentation/Images/UnitySampleLegacy/LogitechVRInk.png)
+![Logitech VR Ink Models](../../../Documentation/Images/DesignGuidelines/VRInkModels.jpg)
 
 **We recommend using the simple model** without the tracking the geometry at the back.
 <br>
