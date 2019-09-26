@@ -8,12 +8,12 @@ namespace LogitechStylus.Scripts
     using UnityEngine;
     using Valve.VR;
 
-    /// <summary>Identifies the VR Ink among SteamVR tracked devices.</summary>
-    /// <remarks>If this class cannot find the VR Ink, avoid using VRInkInputSource or NonDominantInputSource elsewhere.</remarks>
+    /// <summary>Identifies VR Ink among SteamVR tracked devices.</summary>
+    /// <remarks>If this class cannot find VR Ink, avoid using VRInkInputSource or NonDominantInputSource elsewhere.</remarks>
     public class LogitechStylusDetection : SingletonBehaviour<LogitechStylusDetection>
     {
         /// <summary>
-        /// Provide the SteamVR_Input_Source related to the VR Ink.
+        /// Provide the SteamVR_Input_Source related to VR Ink.
         /// </summary>
         /// <example>
         /// <code>
@@ -38,7 +38,7 @@ namespace LogitechStylus.Scripts
         [SerializeField]
         private Transform _nonDominantDeviceModel;
 
-        [SerializeField, Tooltip("Model name of the VR Ink to help identify it in OpenVR.")]
+        [SerializeField, Tooltip("Model name of VR Ink to help identify it in OpenVR.")]
         private string _stylusModelName;
 
         private SteamVR_Behaviour_Pose _leftSteamVRBehaviourPose;
