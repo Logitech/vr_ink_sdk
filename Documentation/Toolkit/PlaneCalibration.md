@@ -1,37 +1,33 @@
 # Plane Calibration
 
-![Banner Calibration World](../Images/Toolkit/PlaneCalibration/Banner_CalibrationWorld.gif)
-
-(To Be Replaced by a gif)
+![Banner Calibration World](../Images/Toolkit/PlaneCalibration/Banner_PlaneCalibration.gif)
 
 ## Interactions
 
-This page will focus here on the plane calibration but if you are interested in the other elements of the scene, we encourage you to visit [the Surface Drawing Documentation,](SurfaceDrawing.md) or [the Menu Interaction Documentation.](menuInteraction.md)
+The plane calibration module provides a method of calibrating a plane with a physical surface and creating a virtual surface. Note that it utilizes elements from the [Surface Drawing](./SurfaceDrawing.md) and [Menu Interaction](./MenuInteraction.md) modules.
 
-The implementation of the plan calibration can be found in the example scene `9_Example_PlaneCalibration` in the `PlaneCalibrationMenu` GameObject.
-You can also see it in action the demo experience.
+The implementation for Plane Calibration can be found in the example scene `9_Example_PlaneCalibration` in the `PlaneCalibrationMenu` GameObject.
+You can also see it in action in our [Demo Experience](../DemoExperience/Readme.md).
 
 ![Hierarchy Calibration Interaction](../Images/Toolkit/PlaneCalibration/Hierarchy_CalibrationInteraction.png)
 
 ## Implementation
 
-All the heavy lifting happens in the `PlaneCalibration.cs` script attached to the `PlaneCalibrationMenu` GameObject.
-
+All the heavy lifting happens in the `PlaneCalibration` script attached to the `PlaneCalibrationMenu` GameObject.
+<br>
 ![Inspector Plane Calibration](../Images/Toolkit/PlaneCalibration/Inspector_PlaneCalibration.png)
 
-To make it easier to start the plane calibration in the scene we just added a button that triggers the calibration.
 
-![Inspector Calibration Button](../Images/Toolkit/PlaneCalibration/Inspector_CalibrationButton.png)
+The Tracked Device is the device you use to position the calibration points, and the` New Point Trigger` is the device and button you use to set each calibration point (3 in total).
 
-### Plane Calibration
+`PlaneCalibration` will not create a drawing surface from scratch, it will reposition and resize an existing one that you set as the `Drawing Plane`. Note that the orientation of the plane will also be determined by the forward vector of the HMD; be sure to look in the right direction when calibrating.
 
-The Tracked device is the device you use to position the calibration points. This scene as it is, allow you to quickly create some plane in 3D anywhere you want. The script will not create a drawing surface from scratch, it will resize and rotate an existing one, the one you pass in Drawing Plane. The orientation of the drawing surface will be determined by the forward vector of the HMD. Be sure to look at the right direction.
+Part of the magic of VR Ink is its ability to draw on real, physical surfaces. You can change the `New Point Trigger` to use the VR Ink Tip instead of the primary button. Then you can just press VR Ink on three edges of your physical surface to calibrate it.
 
-Part of the magic of the VR Ink is its ability to draw on real physical surface. You can change the `PlaneCalibration` component New Point Trigger to use the Tip instead of the primary button. Now you can just press the stylus on three edges of you desk. To also be able to write with the Tip, be sure to change the trigger and the Stylus Axis input in the `ShaderDrawing` component.
-
+To also support writing with the Tip, you can set the `Drawing Trigger` and the `Line Width Provider` in the `ShaderDrawing` component to use the Tip instead of the Primary Button.
+<br>
 ![Inspector Shader Drawing](../Images/Toolkit/PlaneCalibration/Inspector_ShaderDrawing.png)
 
-
-
-
-
+To make it simple to begin calibrating a plane, we use a 3D button that triggers the calibration.
+<br>
+![Inspector Calibration Button](../Images/Toolkit/PlaneCalibration/Inspector_CalibrationButton.png)
