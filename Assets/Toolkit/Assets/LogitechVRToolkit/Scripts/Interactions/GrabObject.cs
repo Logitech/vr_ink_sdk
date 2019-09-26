@@ -98,7 +98,6 @@
 
             if (_highlightGrabTarget && !_grabbing)
             {
-                _highlightAction.Update(_collisionTrigger.IsValid());
                 if (_collisionTrigger.IsValid())
                 {
                     if (_collisionTrigger.CollidedTransform.GetComponent<CollisionInteractable>().ContainsTag(_highlightTag))
@@ -107,6 +106,7 @@
                         _highlightAction.SetCurrentHighlightOutline(_baseHighlightSize);
                     }
                 }
+                _highlightAction.Update(_collisionTrigger.IsValid());
             }
 
 
