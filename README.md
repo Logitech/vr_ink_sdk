@@ -46,7 +46,7 @@ If you're looking to partner with us on VR Ink, please [visit our website](https
 
 We are always working to improve VR Ink and address issues, we would love to hear your feedback!
 
-- [Search for, or file, a new issue](https://github.com/Logitech/labs_vr_stylus_sdk/issues) if you find any problems with VR Ink or the SDK.
+- [Search for, or file, a new issue](https://github.com/Logitech/vr_ink_sdk/issues) if you find any problems with VR Ink or the SDK.
 - If you have any ideas or feature requests regarding VR Ink or the SDK, feel free to create an new issue and label it as 'enhancement'.
 
 # License
