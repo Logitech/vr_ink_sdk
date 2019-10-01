@@ -19,19 +19,19 @@ To ensure VR Ink works in applications and appears correctly in the SteamVR shel
 ## 1. Install the Driver
 1. Download the latest VR Ink Driver Installer from the [releases page](https://github.com/Logitech/labs_vr_stylus_sdk/releases).
 2. Unzip it anywhere on your machine.
-<br>
-<img src="../Documentation/Images/Driver/unzippedDriver.png" width="500" alt="unzipped Folder">
+   <br>
+   <img src="../Documentation/Images/Driver/unzippedDriver.png" width="500" alt="unzipped Folder">
 
 3. Run the installer exe application, and follow the instructions on screen. Select Option '1'.
-<br>
-<img src="../Documentation/Images/Driver/InstallConsole.PNG" width="500" alt="installer console">
-<br>
-<img src="../Documentation/Images/Driver/InstallConsoleSuccessful.png" width="500" alt="installer output">
+   <br>
+   <img src="../Documentation/Images/Driver/InstallConsole.PNG" width="500" alt="installer console">
+   <br>
+   <img src="../Documentation/Images/Driver/InstallConsoleSuccessful.png" width="500" alt="installer output">
 
 4. After successful install, restart SteamVR.
 5. The dashboard should look like the one below. You'll notice the greyed out icon for the Driver's virtual device: that's all ok.
-<br>
-![SteamVR dashboard](../Documentation/Images/Driver/steamVR_virtual_no_connected.png)
+   <br>
+   ![SteamVR dashboard](../Documentation/Images/Driver/steamVR_virtual_no_connected.png)
 
 6. Then pair your VR Ink following the steps described below.
 
@@ -46,8 +46,8 @@ If you want to know more about the features of the VR Ink driver, click on Drive
 4. When VR Ink is successfully paired, the LED will appear as a solid green.
 5. Now, If you wear the HMD you should see the VR Ink model in the SteamVR Shell.
 6. You should also see updated VR Ink icons in SteamVR status window. You'll note now that both the icons for VR Ink are active.
-<br>
-![Pairing the Ink](../Documentation/Images/Driver/steamVR_virtual_connected.png)
+   <br>
+   ![Pairing the Ink](../Documentation/Images/Driver/steamVR_virtual_connected.png)
 
 ## 3. Using VR Ink
 After your VR Ink is set up, we highly recommend that you check out our Demo App or dive into the Unity or Unreal integration guides.
