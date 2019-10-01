@@ -15,7 +15,7 @@ Here you will find:
 
 | <img src="./Documentation/Images/Logos/WinLogo.png" width="50" alt="Windows Logo"><br>**Windows 10** | <img src="./Documentation/Images/Logos/SteamLogo.png" width="50" alt="Steam Logo"><br>**SteamVR 1.4.18** | <img src="./Documentation/Images/Logos/UnityLogo.png" width="50" alt="Unity Logo"><br>**Unity 2017 LTS** | <img src="./Documentation/Images/Logos/UELogo.png" width="50" alt="Unreal Logo"><br>**Unreal 4.19** |
 | :--------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------- |
-| You are developing your VR app in Microsoft Windows 10 64-bit.                                        | This is the minimum required version of SteamVR that fully supports VR Ink.                              | You can use Unity to work with VR Ink. This is the Unity version used by the SDK.                    | You can use Unreal Engine to work with VR Ink. The Unreal Engine version used by the SDK.       |
+| You are developing your VR app in Microsoft Windows 10 64-bit.                                       | This is the minimum required version of SteamVR that fully supports VR Ink.                              | You can use Unity to work with VR Ink. This is the Unity version used by the SDK.                        | You can use Unreal Engine to work with VR Ink. This is the Unreal Engine version used by the SDK.   |
 
 ## SDK Content
 
