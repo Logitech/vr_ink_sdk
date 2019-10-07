@@ -4,7 +4,7 @@ This application is meant as the first contact experience when using the Logitec
 
 ## Install
 
-1. Download the latest version [(download link)](https://github.com/Logitech/labs_vr_stylus_sdk/releases/download/v2.0.0/LogitechDemoExperience_v1.12.zip).
+1. Download the latest version [(download link)](https://github.com/Logitech/vr_ink_sdk/releases/download/v2.0.0/LogitechDemoExperience_v1.13.zip).
 2. Unzip it on your drive.
 3. Make sure SteamVR is running and VR Ink (and a controller) are paired and connected.
 4. Run the LogitechDemoExperience.exe.
