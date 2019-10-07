@@ -1,10 +1,10 @@
 # Design Guidelines
 
-There are some design considerations you should take into account when integrating VR Ink support. [Our Toolkit](Assets/Toolkit) goes more in depth regarding specific interactions using VR Ink, but here we will focus on the general design principles around VR Ink. Sections in these guidelines refer to the models provided in the SDK, but you may also apply them to your own models if you choose to not use one of the models provided.
+There are some design considerations you should take into account when integrating VR Ink support. [Our Toolkit](../../Assets/Toolkit) goes more in depth regarding specific interactions using VR Ink, but here we will focus on the general design principles around VR Ink. Sections in these guidelines refer to the models provided in the SDK, but you may also apply them to your own models if you choose to not use one of the models provided.
 
 ## 3D Models
 
-We provide two variations of VR Ink model in this SDK, one with tracking geometry on the back of the Stylus and one without. These models are split into parts to allow interactions and feedback to be built around each component of VR Ink. You can download them from the [latest release](https://github.com/Logitech/labs_vr_stylus_sdk/releases).
+We provide two variations of VR Ink model in this SDK, one with tracking geometry on the back of the Stylus and one without. These models are split into parts to allow interactions and feedback to be built around each component of VR Ink. You can download them from the [latest release](https://github.com/Logitech/vr_ink_sdk/releases).
 
 ![VR Ink Models](../../Documentation/Images/DesignGuidelines/VRInkModels.jpg)
 
