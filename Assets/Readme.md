@@ -17,7 +17,7 @@ Here are descriptions of the different buttons and inputs available with Logitec
 To ensure VR Ink works in applications and appears correctly in the SteamVR shell and status window, an initial installation is required.
 
 ## 1. Install the Driver
-1. Download the latest VR Ink Driver Installer from the [releases page](https://github.com/Logitech/labs_vr_stylus_sdk/releases).
+1. Download the latest VR Ink Driver Installer from the [releases page](https://github.com/Logitech/vr_ink_sdk/releases).
 2. Unzip it anywhere on your machine.
    <br>
    <img src="../Documentation/Images/Driver/unzippedDriver.png" width="500" alt="unzipped Folder">
