@@ -1,6 +1,6 @@
 # Plane Calibration
 
-![Banner Calibration World](../Images/Toolkit/PlaneCalibration/Banner_PlaneCalibration.gif)
+![Calibration World Banner](../Images/Toolkit/PlaneCalibration/Banner_PlaneCalibration.gif)
 
 ## Interactions
 

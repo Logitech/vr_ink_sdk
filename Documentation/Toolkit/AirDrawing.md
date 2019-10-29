@@ -1,6 +1,6 @@
 # Air Drawing
 
-![Banner AirDrawing World](../Images/Toolkit/AirDrawing/Banner_AirDrawing.gif)
+![AirDrawing World ](../Images/Toolkit/AirDrawing/Banner_AirDrawing.gif)
 
 ## Interactions
 

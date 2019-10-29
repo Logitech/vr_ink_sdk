@@ -1,5 +1,6 @@
 # Menu Interaction
-![Example Buttons](../Images/Toolkit/MenuInteraction/Banner_MenuInteraction.gif)
+
+![Buttons Banner](../Images/Toolkit/MenuInteraction/Banner_MenuInteraction.gif)
 
 The Menu Interaction module provides a way to interact with 3D, diegetic UI. Each UI element can be interacted through raycasting with controller button input or through physical interaction by pushing the UI element.
 
@@ -13,7 +14,7 @@ There are currently 6 different kinds of UI elements in the Toolkit.
 *  Control Point*
 
 The implementation of each Toolkit UI element can be found in the example scene `4_Example_MenuInteractions` in the `Non-DominantControllerVive` GameObject.
-<br>
+
 ![Menu Interaction Hierarchy](../Images/Toolkit/MenuInteraction/Hierarchy_MenuInteraction.png)
 
 \*Control Point is currently lacking an implementation in the example scene.

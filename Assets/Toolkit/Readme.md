@@ -9,7 +9,7 @@ The Toolkit is built using Unity, but the concepts and interactions presented he
 As a starting point, we recommend that you follow our [design guidelines](../../Documentation/DesignGuidelines) when integrating or creating interactions for VR Ink. You can find examples of their implementation in the Toolkit modules below.
 
 ## Getting Started
-You can get the Toolkit by downloading this folder, or by downloading and importing the Unity package from the [releases page](https://github.com/Logitech/labs_vr_stylus_sdk/releases). Note that the Toolkit is not compatible with the Unity Integration section of the SDK. It uses the Unity SteamVR plugin version 2.0+ with the SteamVR action bindings.
+You can get the Toolkit by downloading this folder, or by downloading and importing the Unity package from the [releases page](https://github.com/Logitech/vr_ink_sdk/releases). Note that the Toolkit is not compatible with the Unity Integration section of the SDK. It uses the Unity SteamVR plugin version 2.0+ with the SteamVR action bindings.
 
 ### Toolkit Overview
 

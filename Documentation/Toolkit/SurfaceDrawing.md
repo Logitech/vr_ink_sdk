@@ -1,6 +1,6 @@
 # Surface Drawing
 
-![Banner Surface Drawing](../Images/Toolkit/SurfaceDrawing/Banner_SurfaceDrawing.gif)
+![Surface Drawing Banner](../Images/Toolkit/SurfaceDrawing/Banner_SurfaceDrawing.gif)
 
 ## Interactions
 

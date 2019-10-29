@@ -1,5 +1,6 @@
 # Grab & Scale
-![Grab&ScaleWorld Banner](../Images/Toolkit/Grabe&Scale/Banner_Grab&ScaleWorld.gif)
+
+![Grab & Scale World Banner](../Images/Toolkit/Grabe&Scale/Banner_Grab&ScaleWorld.gif)
 
 The Grab & Scale module provides a way to experiment with different grab and scaling techniques. You can either grab each object individually or the whole world at once.
 
@@ -10,7 +11,7 @@ There are two different interactions for object manipulation in the Toolkit:
 * **Grab World** - Interact with a set of objects at once.
 
 The implementation of each of these interactions can be found in the example scene `3_Example_Grab&Scale` in the `World` GameObject.
-<br>
+
 ![Grab Interaction Hierarchy](../Images/Toolkit/Grabe&Scale/Hierarchy_GrabInteraction.png)
 
 ## Implementation
