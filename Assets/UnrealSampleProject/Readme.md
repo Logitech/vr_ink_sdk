@@ -26,7 +26,7 @@ If you have selected a *blueprint only* project you need to convert it to a C++ 
 
 ### Add the plugin to an existing project
 
-Start by downloading the plugin from the [release page](https://github.com/Logitech/labs_vr_stylus_sdk/releases).
+Start by downloading the plugin from the [release page](https://github.com/Logitech/vr_ink_sdk/releases).
 To manually add the plugin:
 
 1. In your Unreal project's root directory (the one with the `.uproject` file), create a new folder and call it `Plugins`. If you already have a `Plugins` folder you can ignore this step.
@@ -48,7 +48,7 @@ We provide you with two models of the Logitech VR Ink: a full model with the tra
 
 **We recommend using the simple model.**
 
-You will find two blueprint classes, `BP_LogitechVRInk_Full` and `BP_LogitechVRInk_Simple` as well as all the static meshes component, textures and materials. You can download the FBX source and textures from the [release page](https://github.com/Logitech/labs_vr_stylus_sdk/releases).
+You will find two blueprint classes, `BP_LogitechVRInk_Full` and `BP_LogitechVRInk_Simple` as well as all the static meshes component, textures and materials. You can download the FBX source and textures from the [release page](https://github.com/Logitech/vr_ink_sdk/releases).
 
 ### Logitech VR Ink Map
 
