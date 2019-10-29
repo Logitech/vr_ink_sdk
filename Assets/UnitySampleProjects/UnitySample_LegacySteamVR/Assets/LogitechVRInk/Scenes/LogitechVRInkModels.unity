@@ -405,11 +405,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114998572556346354, guid: 5e995fdf3982c2d479501b784f72e70f,
-        type: 2}
-      propertyPath: _modelName
-      value: logitech_
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e995fdf3982c2d479501b784f72e70f, type: 2}
   m_IsPrefabParent: 0

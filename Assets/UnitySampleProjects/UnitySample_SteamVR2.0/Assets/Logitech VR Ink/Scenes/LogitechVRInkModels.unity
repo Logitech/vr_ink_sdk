@@ -155,11 +155,11 @@ Prefab:
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1816921265}
+      objectReference: {fileID: 1767088862}
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 197239527}
+      objectReference: {fileID: 1602763152}
     - target: {fileID: 1000014254142504, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -179,39 +179,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
   m_IsPrefabParent: 0
---- !u!21 &197239527
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &230717115
 Prefab:
   m_ObjectHideFlags: 0
@@ -221,7 +188,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4794967752927074, guid: 36c765d0591634f45a676bd5eca99bf9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.05
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4794967752927074, guid: 36c765d0591634f45a676bd5eca99bf9, type: 2}
       propertyPath: m_LocalPosition.y
@@ -253,32 +220,32 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114045427241616366, guid: 36c765d0591634f45a676bd5eca99bf9,
         type: 2}
-      propertyPath: UseStylusDetection
+      propertyPath: GetInputSourceFromStylusDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114242300849519482, guid: 36c765d0591634f45a676bd5eca99bf9,
         type: 2}
-      propertyPath: UseStylusDetection
+      propertyPath: GetInputSourceFromStylusDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114833245443570136, guid: 36c765d0591634f45a676bd5eca99bf9,
         type: 2}
-      propertyPath: UseStylusDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114207095033997028, guid: 36c765d0591634f45a676bd5eca99bf9,
-        type: 2}
-      propertyPath: UseStylusDetection
+      propertyPath: GetInputSourceFromStylusDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114191666809018690, guid: 36c765d0591634f45a676bd5eca99bf9,
         type: 2}
-      propertyPath: UseStylusDetection
+      propertyPath: GetInputSourceFromStylusDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114207095033997028, guid: 36c765d0591634f45a676bd5eca99bf9,
+        type: 2}
+      propertyPath: GetInputSourceFromStylusDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114972030351727880, guid: 36c765d0591634f45a676bd5eca99bf9,
         type: 2}
-      propertyPath: UseStylusDetection
+      propertyPath: GetInputSourceFromStylusDetection
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -495,7 +462,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1816921265
+--- !u!21 &1602763152
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!43 &1767088862
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -634,7 +634,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4698233485297308, guid: ca1bfa08594a24a48b7f3f020bc9c9bc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.1087
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4698233485297308, guid: ca1bfa08594a24a48b7f3f020bc9c9bc, type: 2}
       propertyPath: m_LocalPosition.y
@@ -666,32 +666,32 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114155767279947620, guid: ca1bfa08594a24a48b7f3f020bc9c9bc,
         type: 2}
-      propertyPath: UseStylusDetection
+      propertyPath: GetInputSourceFromStylusDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114297793273446920, guid: ca1bfa08594a24a48b7f3f020bc9c9bc,
         type: 2}
-      propertyPath: UseStylusDetection
+      propertyPath: GetInputSourceFromStylusDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114461238405603978, guid: ca1bfa08594a24a48b7f3f020bc9c9bc,
         type: 2}
-      propertyPath: UseStylusDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114633428624951248, guid: ca1bfa08594a24a48b7f3f020bc9c9bc,
-        type: 2}
-      propertyPath: UseStylusDetection
+      propertyPath: GetInputSourceFromStylusDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114429105032987580, guid: ca1bfa08594a24a48b7f3f020bc9c9bc,
         type: 2}
-      propertyPath: UseStylusDetection
+      propertyPath: GetInputSourceFromStylusDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114607240581930504, guid: ca1bfa08594a24a48b7f3f020bc9c9bc,
         type: 2}
-      propertyPath: UseStylusDetection
+      propertyPath: GetInputSourceFromStylusDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114633428624951248, guid: ca1bfa08594a24a48b7f3f020bc9c9bc,
+        type: 2}
+      propertyPath: GetInputSourceFromStylusDetection
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

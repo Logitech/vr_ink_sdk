@@ -15,7 +15,7 @@ If you want to start with a new project using the legacy SteamVR Input System, t
 
 ### Adding support to an existing project
 
-If you have an existing project using legacy SteamVR, you can download the Unity Package available on the [releases page](https://github.com/Logitech/labs_vr_stylus_sdk/releases). It will contain the `Logitech VR Ink` folder that contains all the required assets as well as the sample scenes.
+If you have an existing project using legacy SteamVR, you can download the Unity Package available on the [releases page](https://github.com/Logitech/vr_ink_sdk/releases). It will contain the `Logitech VR Ink` folder that contains all the required assets as well as the sample scenes.
 
 ## Plugin Content
 
@@ -36,7 +36,7 @@ This is a very minimal scene where you can find the models that we share with th
 
 You will find that there's two prefabs available to use, `Logitech_VRInk_Full` and `Logitech_VRInk_Simple`, these prefabs also have the button animation and feedback built-in. If you enter play mode and press the different buttons on the device you should see that they animate. You can find more details about the highlighting scheme in [the design guidelines](Documentation/DesignGuidelines).
 
-You can also download the FBX source files & textures from the [latest release](https://github.com/Logitech/labs_vr_stylus_sdk/releases).
+You can also download the FBX source files & textures from the [latest release](https://github.com/Logitech/vr_ink_sdk/releases).
 
 ### Implementation
 
@@ -57,11 +57,13 @@ This means that you need to be able to detect when the Stylus is connected and p
 
 ### Implementation
 
-To detect that the Logitech VR Ink is connected when you start up your application you can ask SteamVR what are the device properties of a specific `SteamVR_Tracked_Object`. All the logic for detecting the Logitech VR Ink is inside the `LogitechStylusDetection` script.
+To detect that the Logitech VR Ink is connected when you start up your application you can ask SteamVR what are the device properties of a specific `SteamVR_Tracked_Object`. All the logic for detecting the Logitech VR Ink is inside the `TrackedDevcieDetection` script.
+
+The detection happens via an event that is automatically triggered by OpenVR System: `SetDeviceIndex`. This will get triggered on start up and everytime a device is connected to OpenVR.
 
 ![Pen Detection in Unity inspector](../../../Documentation/Images/UnitySampleLegacy/LogiPenDetection.png)
 
-We recommend that you use the **ModelNumber_String property** to detect if the pen is connected. You can detect if VR Ink is connected using the *logitech_* string. When you have the game window in focus you can **press P** on the keyboard to print the different property strings in the Unity console.
+We recommend that you use the **ModelNumber_String property** to detect if the pen is connected. You can detect if VR Ink is connected using the *logitech* string.
 
 ## Grip Pose VS Pointer Pose
 

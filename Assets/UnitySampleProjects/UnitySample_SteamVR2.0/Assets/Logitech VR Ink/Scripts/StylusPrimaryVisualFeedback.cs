@@ -1,6 +1,6 @@
 ﻿/* Copyright (c) Logitech Corporation. All rights reserved. Licensed under the MIT License.*/
 
-namespace LogitechStylus.Scripts
+namespace Logitech.Scripts
 {
     using UnityEngine;
     using Valve.VR;
@@ -11,9 +11,9 @@ namespace LogitechStylus.Scripts
     public class StylusPrimaryVisualFeedback : MonoBehaviour
     {
         [Header("Input")]
-        public bool UseStylusDetection = true;
-        [Tooltip("If not using UseStylusDetection, set the SteamVR input source manually")]
-        public SteamVR_Input_Sources SteamVRInputSource;
+        public bool GetInputSourceFromStylusDetection = true;
+        [Tooltip("If UseStylusDetection is false, set the SteamVR input source manually")]
+        public SteamVR_Input_Sources ManualSteamVRInputSource;
         [SerializeField]
         private SteamVR_Action_Single _input;
 
@@ -24,7 +24,9 @@ namespace LogitechStylus.Scripts
 
         private void Update()
         {
-            SteamVR_Input_Sources inputSource = UseStylusDetection ? LogitechStylusDetection.Instance.VRInkInputSource : SteamVRInputSource;
+            SteamVR_Input_Sources inputSource = GetInputSourceFromStylusDetection
+                ? PrimaryDeviceDetection.PrimaryDeviceBehaviourPose.inputSource
+                : ManualSteamVRInputSource;
 
             float mappedPressureValue = _input.GetAxis(inputSource);
             if (mappedPressureValue > 0)

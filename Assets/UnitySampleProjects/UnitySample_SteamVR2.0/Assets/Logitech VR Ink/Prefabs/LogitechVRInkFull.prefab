@@ -853,12 +853,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd988f95624fb98469d549e2eb103994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseStylusDetection: 1
-  SteamVRInputSource: 0
+  GetInputSourceFromStylusDetection: 1
+  ManualSteamVRInputSource: 0
   _input:
     actionPath: /actions/LogitechToolkit/in/GripClick
     needsReinit: 0
-  _targerRenderer: {fileID: 23552485793700232}
+  _targetRenderer: {fileID: 23552485793700232}
   _newMaterial: {fileID: 2100000, guid: 32dfcca0d53f03842a55c9de39e8cc4a, type: 2}
 --- !u!114 &114191666809018690
 MonoBehaviour:
@@ -871,8 +871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f96b492daa8f44f9677792d0de93ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseStylusDetection: 1
-  SteamVRInputSource: 0
+  GetInputSourceFromStylusDetection: 1
+  ManualSteamVRInputSource: 0
   _input:
     actionPath: /actions/LogitechToolkit/in/PrimaryPressure
     needsReinit: 0
@@ -906,12 +906,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd988f95624fb98469d549e2eb103994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseStylusDetection: 1
-  SteamVRInputSource: 0
+  GetInputSourceFromStylusDetection: 1
+  ManualSteamVRInputSource: 0
   _input:
     actionPath: /actions/LogitechToolkit/in/TrackpadClick
     needsReinit: 0
-  _targerRenderer: {fileID: 23291627546094422}
+  _targetRenderer: {fileID: 23291627546094422}
   _newMaterial: {fileID: 2100000, guid: 32dfcca0d53f03842a55c9de39e8cc4a, type: 2}
 --- !u!114 &114242300849519482
 MonoBehaviour:
@@ -924,12 +924,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd988f95624fb98469d549e2eb103994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseStylusDetection: 1
-  SteamVRInputSource: 0
+  GetInputSourceFromStylusDetection: 1
+  ManualSteamVRInputSource: 0
   _input:
     actionPath: /actions/LogitechToolkit/in/GripClick
     needsReinit: 0
-  _targerRenderer: {fileID: 23203039549723632}
+  _targetRenderer: {fileID: 23203039549723632}
   _newMaterial: {fileID: 2100000, guid: 32dfcca0d53f03842a55c9de39e8cc4a, type: 2}
 --- !u!114 &114833245443570136
 MonoBehaviour:
@@ -942,12 +942,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd988f95624fb98469d549e2eb103994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseStylusDetection: 1
-  SteamVRInputSource: 0
+  GetInputSourceFromStylusDetection: 1
+  ManualSteamVRInputSource: 0
   _input:
     actionPath: /actions/LogitechToolkit/in/MenuClick
     needsReinit: 0
-  _targerRenderer: {fileID: 23919801348088424}
+  _targetRenderer: {fileID: 23919801348088424}
   _newMaterial: {fileID: 2100000, guid: 32dfcca0d53f03842a55c9de39e8cc4a, type: 2}
 --- !u!114 &114972030351727880
 MonoBehaviour:
@@ -960,8 +960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5797ad1e12221d42b01be4d744a577c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseStylusDetection: 1
-  SteamVRInputSource: 0
+  GetInputSourceFromStylusDetection: 1
+  ManualSteamVRInputSource: 0
   _touchInput:
     actionPath: /actions/LogitechToolkit/in/TrackpadTouch
     needsReinit: 0

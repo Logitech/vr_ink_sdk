@@ -1,6 +1,6 @@
 ﻿/* Copyright (c) Logitech Corporation. All rights reserved. Licensed under the MIT License.*/
 
-namespace LogitechStylus.Scripts
+namespace Logitech.Scripts
 {
     using UnityEngine;
     using Valve.VR;
@@ -11,36 +11,38 @@ namespace LogitechStylus.Scripts
     public class ButtonVisualFeedback : MonoBehaviour
     {
         [Header("Input")]
-        public bool UseStylusDetection = true;
+        public bool GetInputSourceFromStylusDetection = true;
         [Tooltip("If not using UseStylusDetection, set the SteamVR input source manually")]
-        public SteamVR_Input_Sources SteamVRInputSource;
+        public SteamVR_Input_Sources ManualSteamVRInputSource;
         [SerializeField]
         private SteamVR_Action_Boolean _input;
 
         [Header("Materials")]
         [SerializeField]
-        private Renderer _targerRenderer;
+        private Renderer _targetRenderer;
         [SerializeField]
         private Material _newMaterial;
         private Material _defaultMaterial;
 
         private void Update()
         {
-            SteamVR_Input_Sources inputSource = UseStylusDetection ? LogitechStylusDetection.Instance.VRInkInputSource : SteamVRInputSource;
+            SteamVR_Input_Sources inputSource = GetInputSourceFromStylusDetection
+                ? PrimaryDeviceDetection.PrimaryDeviceBehaviourPose.inputSource
+                : ManualSteamVRInputSource;
 
             if (_input.GetStateDown(inputSource))
             {
-                var mats = _targerRenderer.sharedMaterials;
+                var mats = _targetRenderer.sharedMaterials;
                 _defaultMaterial = mats[0];
                 mats[0] = _newMaterial;
-                _targerRenderer.sharedMaterials = mats;
+                _targetRenderer.sharedMaterials = mats;
             }
 
             if (_input.GetStateUp(inputSource))
             {
-                var mats = _targerRenderer.sharedMaterials;
+                var mats = _targetRenderer.sharedMaterials;
                 mats[0] = _defaultMaterial;
-                _targerRenderer.sharedMaterials = mats;
+                _targetRenderer.sharedMaterials = mats;
             }
         }
     }
