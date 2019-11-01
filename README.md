@@ -49,7 +49,12 @@ We are always working to improve VR Ink and address issues, we would love to hea
 - [Search for, or file, a new issue](https://github.com/Logitech/vr_ink_sdk/issues) if you find any problems with VR Ink or the SDK.
 - If you have any ideas or feature requests regarding VR Ink or the SDK, feel free to create an new issue and label it as 'enhancement'.
 
+### Troubleshooting
+
+- If you experience any problem with your VR Ink device, have a look at the [FAQ section](./Documentation/FAQ/Readme.md).
+- If this does not solve your problem you can contact us at [vrinksupport@logitech.com](mailto:vrinksupport@logitech.com).
+
 # License
 
 Copyright (c) 2019 Logitech, Inc.
-Licensed under the MIT License.
+Licensed under the [MIT License](./License.md).
