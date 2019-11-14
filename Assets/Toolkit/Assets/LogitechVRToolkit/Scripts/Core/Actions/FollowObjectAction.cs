@@ -12,7 +12,7 @@
     [Serializable]
     public class FollowObjectAction : Action
     {
-        [Space(-10), Header("Settings")]
+        [Header("Settings")]
         [Tooltip("Object that is going to follow TargetToFollow")]
         public Transform Follower;
         public bool FollowTrackedDevice;
