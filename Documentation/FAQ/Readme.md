@@ -51,22 +51,16 @@ In the case of VR Ink and Vive Controller the procedure goes like this:
 1. All devices should be turned off Vive Controllers, Tracker and VR Ink
 2. Plug in the dongle in the computer
 3. Turn on SteamVR, you should see this
-<br>
-![SteamVR Everything Off](./../Images/FAQ/MixedRealityCapture/SteamVRControllersOff.png)
+<br>![SteamVR Everything Off](./../Images/FAQ/MixedRealityCapture/SteamVRControllersOff.png)
 4. Turn on VR Ink and a Vive Controller
-<br>
-![SteamVR VR Ink + Controller](./../Images/FAQ/MixedRealityCapture/SteamVROn.png)
+<br>![SteamVR VR Ink + Controller](./../Images/FAQ/MixedRealityCapture/SteamVROn.png)
 5. Select *Pair Controller* by right-clicking on an active controller, then select *I want to pair a different type of controller*, select Vive Tracker.
-<br>
-![SteamVR Pair Controller](./../Images/FAQ/MixedRealityCapture/SteamVRPairController.png)
-<br>
-![SteamVR Pair Tracker](./../Images/FAQ/MixedRealityCapture/PairTracker.png)
+<br>![SteamVR Pair Controller](./../Images/FAQ/MixedRealityCapture/SteamVRPairController.png)
+<br>![SteamVR Pair Tracker](./../Images/FAQ/MixedRealityCapture/PairTracker.png)
 6. Put the tracker in pairing mode by pressing the system button
 7. You should now see this:
-<br>
-![SteamVR Status everything paired](./../Images/FAQ/MixedRealityCapture/SteamVREverythinOnWrongOrder.png)
-<br>
-![SteamVR Shell](./../Images/FAQ/MixedRealityCapture/SteamVRShellWithTracker.png)
+<br>![SteamVR Status everything paired](./../Images/FAQ/MixedRealityCapture/SteamVREverythinOnWrongOrder.png)
+<br>![SteamVR Shell](./../Images/FAQ/MixedRealityCapture/SteamVRShellWithTracker.png)
 The tracker is now paired to its dongle!
 
 #### Setting up the mixed reality capture
@@ -77,22 +71,18 @@ This part assumes that you have put the  externalcamera.cfg in Tilt Brush folder
 
 1. All devices should be turned off Vive Controllers, Tracker and VR Ink
 2. Turn on SteamVR, you should see this
-<br>
-![SteamVR Everything Off](./../Images/FAQ/MixedRealityCapture/SteamVRControllersOff.png)
+<br>![SteamVR Everything Off](./../Images/FAQ/MixedRealityCapture/SteamVRControllersOff.png)
 3. Turn on the previously paired vive controller first
-<br>
-![SteamVR Controller Paired](./../Images/FAQ/MixedRealityCapture/SteamVRControllerOnly.png)
+<br>![SteamVR Controller Paired](./../Images/FAQ/MixedRealityCapture/SteamVRControllerOnly.png)
 4. Turn on the tracker
-<br>
-![SteamVR Tracker Paired](./../Images/FAQ/MixedRealityCapture/SteamVRControllerAndTracker.png)
+<br>![SteamVR Tracker Paired](./../Images/FAQ/MixedRealityCapture/SteamVRControllerAndTracker.png)
 5. Right Click on the tracker, select Manage Tracker and make sure it is set as *Camera*
-![Manage tracker role](./../Images/FAQ/MixedRealityCapture/ManageTrackerWindow.png)
+<br>![Manage tracker role](./../Images/FAQ/MixedRealityCapture/ManageTrackerWindow.png)
 6. Turn on VR Ink
-<br>
-![SteamVR Everything on](./../Images/FAQ/MixedRealityCapture/SteamVREverythinOn.png)
+<br>![SteamVR Everything on](./../Images/FAQ/MixedRealityCapture/SteamVREverythinOn.png)
 7. Now turning on TiltBrush:
-<br>
-![Tilt Brush Window](./../Images/FAQ/MixedRealityCapture/TiltBrushMixedRealityMode.png)
+<br>![Tilt Brush Window](./../Images/FAQ/MixedRealityCapture/TiltBrushMixedRealityMode.png)
+
 The tracker correctly moves the camera in the bottom left quadrant. The setup for mixed reality capture is finished
 
 ### 4. Can I use 2 VR Inks at the same time ?
