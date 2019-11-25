@@ -37,13 +37,13 @@ The radio menu for the Touchstrip gives you control on how to interpret the touc
 
 ### Pressure Presets
 
-By selecting the PRESSURE tab you can play with response of the different analog inputs on the device.
+On the STATUS page you can select 3 presets that will change the analog response of the different inputs on VR Ink.
 
 ![Pressure Presets](./../Images/Driver/PressurePresets.png)
 
 We recommend that you start with the **low** preset; if you feel like it is too easy to activate certain inputs in a given application you can try to select **medium** or **high**.
 
-If you want to have finer control one each of the analog input you can *Customize* and the GRIP tab. There you will be able to manually adjust the curve and threshold as you see fit.
+If you want to have finer control one each of the analog input you can select the PRIMARY, TIP or GRIP tab. There you will be able to manually adjust the curves and thresholds as you see fit.
 
 ![Curve Settings](./../Images/Driver/CurveSettings.gif)
 
@@ -55,7 +55,7 @@ On the first launch you will asked about sharing anonymized analytics data:
 
 We would appreciate if you would opt in, since this will help Logitech understand which features of VR Ink are the most used, and it will be helpful in case of remote support.
 
-You can decide to opt in and out at any moment by going to the *Advanced* menu on the STATUS page.
+You can decide to opt in and out at any moment by clicking on the cogwheel at the top right of the application:
 
 ![Status Advanced](./../Images/Driver/StatusAdvanced.gif)
 
