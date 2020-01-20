@@ -1,0 +1,93 @@
+{
+	"default_bindings": [
+		{
+            "controller_type": "logitech_stylus",
+            "binding_url": "vr_ink_bindings.json"
+        },
+		{
+            "controller_type": "vive_controller",
+            "binding_url": "vive_controller_bindings.json"
+        }        
+    ],
+    "actions": [
+        {
+            "name": "/actions/controller/in/triggerhaptic",
+            "type": "boolean"
+        },
+        {
+            "name": "/actions/controller/in/touchstrip_position",
+            "type": "vector2"
+        },
+        {
+            "name": "/actions/controller/in/touchstrip_touch",
+            "type": "boolean"
+        },
+        {
+            "name": "/actions/controller/in/touchstrip_click",
+            "type": "boolean"
+        },
+        {
+            "name": "/actions/controller/in/pose",
+            "type": "pose"
+        },
+        {
+            "name": "/actions/controller/out/haptic",
+            "type": "vibration"
+        },
+        {
+            "name": "/actions/controller/in/tip_value",
+            "type": "vector1"
+        },
+        {
+            "name": "/actions/controller/in/tip_touch",
+            "type": "boolean"
+        },
+        {
+            "name": "/actions/controller/in/tip_click",
+            "type": "boolean"
+        },
+        {
+            "name": "/actions/controller/in/primary_value",
+            "type": "vector1"
+        },
+        {
+            "name": "/actions/controller/in/primary_touch",
+            "type": "boolean"
+        },
+        {
+            "name": "/actions/controller/in/primary_click",
+            "type": "boolean"
+        },
+        {
+            "name": "/actions/controller/in/grip",
+            "type": "boolean"
+        },
+        {
+            "name": "/actions/controller/in/application_menu",
+            "type": "boolean"
+        },
+        {
+            "name": "/actions/controller/in/system",
+            "type": "boolean"
+        }
+    ],    
+	"action_sets": [
+      {
+        "name": "/actions/controller",
+        "usage": "single"
+      }
+    ],
+    "localization": [
+        {
+          "language_tag": "en_US",
+		  "/actions/controller/in/Grab": "Grab",
+		  "/actions/controller/in/Menu": "Menu",
+		  "/actions/controller/in/Pose": "Pose",
+		  "/actions/controller/in/Primary": "Primary",
+		  "/actions/controller/in/Trackpad": "Touchstrip_position",
+		  "/actions/controller/in/TrackpadClick": "Touchstrip_click",
+		  "/actions/controller/in/TrackpadTouch": "Touchstrip_touch",
+		  "/actions/controller/out/Haptics": "Haptics"
+        }
+    ]
+}

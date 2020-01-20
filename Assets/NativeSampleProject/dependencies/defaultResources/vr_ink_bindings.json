@@ -1,0 +1,176 @@
+{
+   "action_manifest_version" : 0,
+   "alias_info" : {},
+   "app_key" : "system.generated.VRInkNative.exe",
+   "bindings" : {
+      "/actions/controller" : {
+         "haptics" : [
+            {
+               "output" : "/actions/controller/out/haptic",
+               "path" : "/user/hand/right/output/haptic"
+            },
+			{
+               "output" : "/actions/controller/out/haptic",
+               "path" : "/user/hand/left/output/haptic"
+            }
+         ],
+         "poses" : [
+		    {
+               "output" : "/actions/logitechtoolkit/in/pose",
+               "path" : "/user/hand/left/pose/gdc2015"
+            },
+            {
+               "output" : "/actions/logitechtoolkit/in/pose",
+               "path" : "/user/hand/right/pose/gdc2015"
+            },
+            {
+               "output" : "/actions/controller/in/pose",
+               "path" : "/user/hand/right/pose/raw"
+            },
+            {
+               "output" : "/actions/controller/in/pose",
+               "path" : "/user/hand/right/pose/tip"
+            },
+            {
+               "output" : "/actions/controller/in/pose",
+               "path" : "/user/hand/right/pose/handgrip"
+            },
+            {
+               "output" : "/actions/controller/in/pose",
+               "path" : "/user/hand/right/pose/base"
+            },            
+			{
+               "output" : "/actions/controller/in/pose",
+               "path" : "/user/hand/left/pose/raw"
+            },
+            {
+               "output" : "/actions/controller/in/pose",
+               "path" : "/user/hand/left/pose/tip"
+            },
+            {
+               "output" : "/actions/controller/in/pose",
+               "path" : "/user/hand/left/pose/handgrip"
+            },
+            {
+               "output" : "/actions/controller/in/pose",
+               "path" : "/user/hand/left/pose/base"
+            }
+         ],
+         "sources" : [
+            {
+               "inputs" : {
+                  "force" : {
+                     "output" : "/actions/controller/in/primary_value"
+                  }
+               },
+               "mode" : "force_sensor",
+               "path" : "/user/hand/right/input/primary"
+            },
+			{
+               "inputs" : {
+                  "force" : {
+                     "output" : "/actions/controller/in/primary_value"
+                  }
+               },
+               "mode" : "force_sensor",
+               "path" : "/user/hand/left/input/primary"
+            },
+            {
+               "inputs" : {
+                  "force" : {
+                     "output" : "/actions/controller/in/tip_value"
+                  }
+               },
+               "mode" : "force_sensor",
+               "path" : "/user/hand/right/input/tip"
+            },
+			{
+               "inputs" : {
+                  "force" : {
+                     "output" : "/actions/controller/in/tip_value"
+                  }
+               },
+               "mode" : "force_sensor",
+               "path" : "/user/hand/left/input/tip"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/controller/in/grip"
+                  },
+                  "touch" : {
+                     "output" : "/actions/controller/in/grip"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/right/input/grip"
+            },
+			{
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/controller/in/grip"
+                  },
+                  "touch" : {
+                     "output" : "/actions/controller/in/grip"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/left/input/grip"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/controller/in/touchstrip_click"
+                  },
+                  "position" : {
+                     "output" : "/actions/controller/in/touchstrip_position"
+                  },
+                  "touch" : {
+                     "output" : "/actions/controller/in/touchstrip_touch"
+                  }
+               },
+               "mode" : "trackpad",
+               "path" : "/user/hand/right/input/touchstrip"
+            },
+			{
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/controller/in/touchstrip_click"
+                  },
+                  "position" : {
+                     "output" : "/actions/controller/in/touchstrip_position"
+                  },
+                  "touch" : {
+                     "output" : "/actions/controller/in/touchstrip_touch"
+                  }
+               },
+               "mode" : "trackpad",
+               "path" : "/user/hand/left/input/touchstrip"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/controller/in/application_menu"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/right/input/menu"
+            },
+			{
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/controller/in/application_menu"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/left/input/menu"
+            }
+         ]
+      }
+   },
+   "controller_type" : "logitech_stylus",
+   "description" : "Logitech VR ink Bindings",
+   "name" : "Logitech VR Ink",
+   "options" : {},
+   "simulated_actions" : []
+}
