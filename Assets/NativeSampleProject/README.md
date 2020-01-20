@@ -113,5 +113,5 @@ When running this application with both VR Ink and a Vive controller, you may en
 
 This is a known issue that seems to happen on some machines and not others. Closing the process and starting the application will eventually make it work. Note that having only VR Ink connected should not trigger this exception.
 
-If you experience any problem with your VR Ink device, have a look at the [FAQ section](./../FAQ/Readme.md).
+If you experience any problem with your VR Ink device, have a look at the [FAQ section](../../Documentation/FAQ/Readme.md).
 If this does not solve your problem you can contact us at [vrinksupport@logitech.com](mailto:vrinksupport@logitech.com).
