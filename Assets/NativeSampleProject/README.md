@@ -8,6 +8,14 @@ We recommend that you:
 - Follow these [**design guidelines**](../../Documentation/DesignGuidelines) when integrating or creating interactions for VR Ink.
 - Look at the examples of their implementation in the [**VR Ink Toolkit**](../../Assets/Toolkit).
 
+## Get Started and Run the Sample
+First, get the source code by doing one of the following:
+- Clone the project and find it under Assets/NativeSampleProject.
+- Download the native source folder from the [**Release page**](https://github.com/Logitech/vr_ink_sdk/releases).
+
+The solution file *VRInkNative.sln* is provided, run it with your editor and build the solution. We used **Microsoft Visual Studio professional 2017** Version *15.9.16* to build it.
+If you build on Release and x64, the build will be made in *x64/Release*. Note that we added some post build commands to also create a new *ReleaseBuild* folder that will only contain the minimum files to run the application.
+
 ## Using SteamVR 2.0 Input System (recommended)
 SteamVR has moved to implement the OpenXR standard with the SteamVR 2.0 Input mapping. If your project is using the SteamVR 2.0 input system, you can follow the default implementation in this example.
 
@@ -96,11 +104,14 @@ Note that the driver is still using SteamVR itself, so it will add a small delay
 The API doesn't provide data for other controllers. In this example, the HTC Vive controller will use the SteamVR 2.0 Input mapping either way.
 
 ## Troubleshooting
-When running this application, you may encounter the following exception:
+Note that the action mapping is done at the start of the application. Meaning that any controller you want to see in this application will have to be turned on and being paired to your HMD **before** starting the application.
+Turning on or pairing the controller after the start of the application will result in them having no action map assigned and thus not rendering or working in the app.
+
+When running this application with both VR Ink and a Vive controller, you may encounter the following exception:
 
 `Exception thrown at 0x00007FFB5F26D93E (nvoglv64.dll) in VRInkNative.exe: 0xC0000005: Access violation reading location 0x0000000000000000.`
 
-This is a known issue that seems to happen on some machines and not others. Closing the process and starting the application will eventually make it work.
+This is a known issue that seems to happen on some machines and not others. Closing the process and starting the application will eventually make it work. Note that having only VR Ink connected should not trigger this exception.
 
 If you experience any problem with your VR Ink device, have a look at the [FAQ section](./../FAQ/Readme.md).
 If this does not solve your problem you can contact us at [vrinksupport@logitech.com](mailto:vrinksupport@logitech.com).
