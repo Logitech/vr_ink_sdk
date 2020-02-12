@@ -148,3 +148,40 @@ This part assumes that you have put the externalcamera.cfg in Tilt Brush folder 
    ![Tilt Brush Window](./../Images/FAQ/MixedRealityCapture/TiltBrushMixedRealityMode.png)
 
 The Vive tracker should move the camera in the bottom left quadrant. The setup for mixed reality capture is now finished!
+
+## 10. Selecting Custom Bindings for an Application
+
+The team at Logitech might share and publish bindings for existing applications. **To access them you need to be logged in Steam**.
+
+Selecting custom bindings is a simple operation that you can do directly in VR :
+
+1. Open a VR application. In this example we are using Tiltbrush.
+
+2. Open the SteamVR Dashboard by pressing the system button
+
+3. Select *Settings* on the bottom right
+
+4. Select *Controllers* on the left panel then click *Manage controller Bindings*
+   <br>
+   ![select Custom Bindings](./../Images/FAQ/SelectCustomBindings/openSettingMenu.png)
+
+5. Click On *Custom*
+   <br>
+   ![tiltBrush Bindings](./../Images/FAQ/SelectCustomBindings/manageBindingsForTB.png)
+
+6. Click On *Chose Another*
+   <br>
+   ![tiltBrush Bindings](./../Images/FAQ/SelectCustomBindings/clickChoseAnother.png)
+
+7. This brings you to the actual binding page. You will see the community binding that was created by **Logitech VR Ink Team**. Click *View*
+   <br>
+   ![view bindings](./../Images/FAQ/SelectCustomBindings/viewBinding.png)
+
+8. You need to select this as the active binding. Click *Select this Binding*
+   <br>
+   ![view bindings](./../Images/FAQ/SelectCustomBindings/selectingBiding.png)
+
+9. Click on *Back* on the top left of the overlay and go back to the application. The custom binding is now active and selected !
+
+Here is the list of application that offers custom bindings, we will update the list as we add or remove bindings:
+- Tiltbrush

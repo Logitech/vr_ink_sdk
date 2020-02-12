@@ -21,6 +21,7 @@
         }
 
         private Color _activeColour;
+
         [SerializeField]
         private Material[] _targetMaterials;
 
@@ -46,23 +47,23 @@
         private void Update()
         {
             Color color = DrawingVariables.Instance.Colour;
-            if (_activeColour == color)
+            foreach (Material mat in _targetMaterials)
             {
-                return;
-            }
-
-            _activeColour = color;
-
-            foreach (var replacementColour in _replacementColours)
-            {
-                if (_activeColour == replacementColour.ColourToReplace)
+                if (mat.color != color)
                 {
-                    UpdateColours(replacementColour.NewColour);
+                    _activeColour = color;
+                    foreach (var replacementColour in _replacementColours)
+                    {
+                        if (_activeColour == replacementColour.ColourToReplace)
+                        {
+                            UpdateColours(replacementColour.NewColour);
+                            return;
+                        }
+                    }
+                    UpdateColours(color);
                     return;
                 }
             }
-
-            UpdateColours(color);
         }
 
         private void UpdateColours(Color color)

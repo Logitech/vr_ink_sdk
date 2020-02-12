@@ -10,7 +10,7 @@
     /// Unity abstraction of a <see cref="TrackedDevice"/> implementing <see cref="IIOTrackedDevice"/>. Note that for
     /// values based on axes (grab, primary, and trackpad), Unity must be configured accordingly. In order to do this go
     /// to Edit > Project Settings > Input and add the corresponding Axes.
-    /// TODO This class has not been thoroughly tested, we recommend using the SteamVR abstraction.
+    /// TODO This class has not been thoroughly tested, we highly recommend using the SteamVR or Oculus abstraction.
     /// </summary>e"/>
     public class TrackedDevice_Unity : IIOTrackedDevice
     {
@@ -32,17 +32,17 @@
         private readonly Dictionary<StylusButton, string> _buttonsToJoystickMapLeft = new Dictionary<StylusButton, string>()
         {
             {StylusButton.Primary, "joystick button 14"},
-            {StylusButton.TouchstripTouch, "joystick button 2"}, // TODO button might be wrong? Need to check.
-            {StylusButton.TouchstripClick, "joystick button 3"}, // TODO button might be wrong? Need to check.
-            {StylusButton.Menu, "joystick button 8"}, // or 16
+            {StylusButton.TouchstripTouch, "joystick button 16"},
+            {StylusButton.TouchstripClick, "joystick button 8"},
+            {StylusButton.Menu, "joystick button 2"},
             {StylusButton.Grip, "left grip"}
         };
         private readonly Dictionary<StylusButton, string> _buttonsToJoystickMapRight = new Dictionary<StylusButton, string>()
         {
             {StylusButton.Primary, "joystick button 15"},
+            {StylusButton.TouchstripTouch, "joystick button 17"},
+            {StylusButton.TouchstripClick, "joystick button 9"},
             {StylusButton.Menu, "joystick button 0"},
-            {StylusButton.TouchstripTouch, "joystick button 9"}, // or 17, TODO button might be wrong? Need to check.
-            {StylusButton.TouchstripClick, "joystick button 10"}, // TODO button might be wrong? Need to check.
             {StylusButton.Grip, "right grip"}
         };
 
@@ -50,22 +50,22 @@
         {
             {StylusAxisInput.Primary, "9th axis"},
             {StylusAxisInput.TrackpadX, "X Axis"},
-            {StylusAxisInput.TrackpadY, "Y Axis"} // TODO Axis might be wrong? Need to check.
+            {StylusAxisInput.TrackpadY, "Y Axis"}
         };
         private readonly Dictionary<StylusAxisInput, string> _axesToJoystickMapRight = new Dictionary<StylusAxisInput, string>()
         {
             {StylusAxisInput.Primary, "10th axis"},
-            {StylusAxisInput.TrackpadX, "5th axis"},
-            {StylusAxisInput.TrackpadY, "6th axis"} // TODO Axis might be wrong? Need to check.
+            {StylusAxisInput.TrackpadX, "4th axis"},
+            {StylusAxisInput.TrackpadY, "5th axis"}
         };
 
-        private bool grabDownLastFrame = false;
-        private bool grabUpLastFrame = true;
+        private bool _grabDownLastFrame = false;
+        private bool _grabUpLastFrame = true;
 
         public TrackedDevice_Unity()
         {
-            // TODO Fix this algorithm - there are two pens showing up (Left AND Right).
-            // Look for "OpenVR Controller(logi_pen_v3.0) - Right" or "Left" in Input.GetJoystickNames() to determine handedness.
+            // TODO Fix this algorithm - there are two Styli showing up (Left AND Right).
+            // Look for "OpenVR Controller(logi) - Right" or "Left" in Input.GetJoystickNames() to determine handedness.
             StylusHand = Handedness.Primary;
             foreach (var controller in Input.GetJoystickNames())
             {
@@ -86,7 +86,7 @@
             return Input.GetAxisRaw(native);
         }
 
-        // Note: grab button is mapped to an axis whose value is either 0.0 or 1.0 for vive (for Oculus analog grab
+        // Note: grab button is mapped to an axis whose value is either 0.0 or 1.0 for Vive (for Oculus analog grab
         // compatibility) which makes it a bit more tedious to get the input below.
         public bool GetButton(StylusButton stylusButton)
         {
@@ -123,11 +123,11 @@
                 {
                     if (Input.GetAxis(native) == 0f)
                     {
-                        grabDownLastFrame = false;
+                        _grabDownLastFrame = false;
                     }
-                    else if (Input.GetAxis(native) > 0f && !grabDownLastFrame)
+                    else if (Input.GetAxis(native) > 0f && !_grabDownLastFrame)
                     {
-                        LogitechToolkitManager.Instance.StartCoroutine(RunNextFrame(() => grabDownLastFrame = true));
+                        LogitechToolkitManager.Instance.StartCoroutine(RunNextFrame(() => _grabDownLastFrame = true));
 
                         return true;
                     }
@@ -153,11 +153,11 @@
                 {
                     if (Input.GetAxis(native) > 0f)
                     {
-                        grabUpLastFrame = false;
+                        _grabUpLastFrame = false;
                     }
-                    else if (Input.GetAxis(native) == 0f && !grabUpLastFrame)
+                    else if (Input.GetAxis(native) == 0f && !_grabUpLastFrame)
                     {
-                        LogitechToolkitManager.Instance.StartCoroutine(RunNextFrame(() => grabUpLastFrame = true));
+                        LogitechToolkitManager.Instance.StartCoroutine(RunNextFrame(() => _grabUpLastFrame = true));
                         return true;
                     }
                     return false;
@@ -188,13 +188,12 @@
 
         public void OnDestroy()
         {
-            return; // Nothing needed for Unity
+            // Nothing needed for Unity.
         }
 
-        // TODO Implement
         public void SendHapticPulse(float delayInSeconds, float durationInSeconds, float frequency, float amplitude)
         {
-            Debug.LogError("Haptics are only available using the SteamVR abstraction");
+            Debug.LogError("Haptics is not available in the Native Unity abstraction.");
         }
 
         /// <summary>

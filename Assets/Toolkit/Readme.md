@@ -26,6 +26,7 @@ These modules of the Toolkit showcase how to create some key interactions with V
 [<img src="../../Documentation/Images/Toolkit/Teleport.png" width="290" alt="Toolkit">](../../Documentation/Toolkit/Teleport.md)
 [<img src="../../Documentation/Images/Toolkit/Haptics.png" width="290" alt="Toolkit">](../../Documentation/Toolkit/Haptics.md)
 [<img src="../../Documentation/Images/Toolkit/PlaneCalibration.png" width="290" alt="Toolkit">](../../Documentation/Toolkit/PlaneCalibration.md)
+[<img src="../../Documentation/Images/Toolkit/MarkerMenu.png" width="290" alt="Toolkit">](../../Documentation/Toolkit/MarkerMenu.md)
 
 ## Example Scenes
 Along with example scenes for each module, there are two more scenes.

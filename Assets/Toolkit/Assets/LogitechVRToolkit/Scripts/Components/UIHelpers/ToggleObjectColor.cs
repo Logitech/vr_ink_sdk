@@ -32,6 +32,11 @@
 
         public void Toggle()
         {
+            if (_toggle == null)
+            {
+                _toggle = GetComponent<Toggle>();
+            }
+
             Color toColor = _toggle.isOn ? _onColor : _offColor;
 
             if (_fade)

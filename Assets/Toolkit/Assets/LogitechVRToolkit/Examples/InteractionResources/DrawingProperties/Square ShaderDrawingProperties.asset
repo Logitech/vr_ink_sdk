@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3a2a09c03c0b5d42a3f59c8a89129ce, type: 3}
-  m_Name: Default ShaderDrawingProperties
+  m_Name: Square ShaderDrawingProperties
   m_EditorClassIdentifier: 
   Offset: -0.005
   Spacing: 0.5
   MinWidth: 0
   ComputeShaderRef: {fileID: 7200000, guid: 4c1fe886ed1c29740b9a72a581d32e00, type: 3}
-  TextureDimension: {x: 3840, y: 2400}
+  TextureDimension: {x: 3840, y: 3840}
   UndoHistorySize: 24

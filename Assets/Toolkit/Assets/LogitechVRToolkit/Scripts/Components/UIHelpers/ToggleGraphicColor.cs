@@ -15,23 +15,30 @@
 
         [SerializeField]
         private Graphic _graphic;
+
         [SerializeField]
         private Color _onColor;
+
         [SerializeField]
         private Color _offColor;
+
         [SerializeField]
         private bool _fade;
+
         [SerializeField, ShowIf("_fade")]
         private float _animationSpeed;
 
         private void Start()
         {
-            _toggle = GetComponent<Toggle>();
             Toggle();
         }
 
         public void Toggle()
         {
+            if (_toggle == null)
+            {
+                _toggle = GetComponent<Toggle>();
+            }
             Color toColor = _toggle.isOn ? _onColor : _offColor;
 
             if (_fade)

@@ -181,6 +181,7 @@
             _cs.SetTexture(_saveFrameKernel, "Result", _drawingTexture);
             _cs.SetTexture(_writeFrameKernel, "UndoTexture", _undoTexture);
             _cs.SetTexture(_writeFrameKernel, "Result", _drawingTexture);
+            _cs.SetTexture(_ereaseAllKernel, "Result", _drawingTexture);
 
             // Init variables in the compute shader
             var textureDimension = ShaderDrawingProperties.TextureDimension;
@@ -197,9 +198,10 @@
             _cs.Dispatch(_writeFrameKernel, (int)(textureDimension.x / 32), (int)(textureDimension.y / 32), 1);
             _cs.Dispatch(_ereaseAllKernel, (int)(textureDimension.x / 32), (int)(textureDimension.y / 32), 1);
 
-            _cs.SetTexture(_ereaseAllKernel, "Result", _drawingTexture);
-
-            _source.GetComponent<Renderer>().material.mainTexture = _drawingTexture;
+            for (int i = 0; i < _source.GetComponent<Renderer>().materials.Length; i++)
+            {
+                _source.GetComponent<Renderer>().materials[i].mainTexture = _drawingTexture;
+            }
         }
 
         private void CreateTextures()

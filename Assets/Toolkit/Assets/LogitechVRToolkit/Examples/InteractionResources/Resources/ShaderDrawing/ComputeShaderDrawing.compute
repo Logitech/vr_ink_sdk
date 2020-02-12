@@ -1,10 +1,10 @@
-﻿// Each #kernel tells which function to compile; you can have many kernels
+﻿// Each #kernel tells which function to compile; you can have many kernels.
 #pragma kernel CSMain
 #pragma kernel SaveFrame
 #pragma kernel WriteFrame
 #pragma kernel EraseAll
 
-// Variables
+// Variables.
 RWTexture2D<float4> Result;
 float Range;
 
@@ -26,77 +26,55 @@ Texture2D<float4> UndoTextures[100];
 [numthreads(32,32,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    for(int i = 0;i<arrayLength;i++){
+    for(int i = 0; i < arrayLength; i++)
+    {
         float newBrushSize = lerp(previousBrushSize, brushSize, (float) i / arrayLength);
-        float dx = abs(id.x-penPosition[i].x);
-        if(dx>newBrushSize)continue;
-        float dy = abs(id.y-penPosition[i].y);
-        if(dy>newBrushSize)continue;
-        float zero = float(0);
-        if(dx+dy<newBrushSize)
+        float distanceFromInk = distance(penPosition[i], id.xy);
+        float brushDrawing = step(distanceFromInk, newBrushSize);
+
+        // Color from the stylus that is going to be blended.
+        float4 sourceColor = penColor;
+        // Destination color, basically the canvas.
+        float4 destinationColor = Result[id.xy];
+        // Final color.
+        float4 outColor = penColor;
+
+        // Alpha blending as per https://en.wikipedia.org/wiki/Alpha_compositing#Composing_alpha_blending_with_gamma_correction.
+        outColor.a = sourceColor.a + destinationColor.a * (1 - sourceColor.a);
+        outColor.rgb = sourceColor.rgb + destinationColor.rgb * (1 - sourceColor.a);
+
+        // Do not blend if drawing is on the same color.
+        float allowBlending = step(0.01, distance(destinationColor, sourceColor));
+        outColor = allowBlending * outColor + step(allowBlending, 0) * penColor;
+
+        if (allowBlending == 0)
         {
-            float f = distance(id.xy,penPosition[i])-newBrushSize*hardness;
-            float4 outColor = penColor;
-            float4 currentColor = Result[id.xy];
-
-            outColor.a = f<0?1: 1 - distance(id.xy,penPosition[i])/newBrushSize;
-
-            if (currentColor.r == zero && currentColor.g == zero && currentColor.b == zero && currentColor.a == zero)
-            {
-               outColor.rgb = outColor.rgb;
-            }
-            else
-            {
-                outColor.rgb = outColor.rgb*outColor.a+currentColor.rgb*(1-outColor.a);
-            }
-
-            outColor.a = outColor.a +currentColor.a *(1-outColor.a);
-
-            Result[id.xy] =isErasing? penColor: outColor;
-            continue;
+            outColor = penColor;
         }
-        if(dx*dx+dy*dy<newBrushSize*newBrushSize)
+
+        if (brushDrawing == 1)
         {
-            float f = distance(id.xy,penPosition[i])-newBrushSize*hardness;
-            float4 outColor = penColor;
-            float4 currentColor = Result[id.xy];
-
-            outColor.a = f<0?1: 1 - distance(id.xy,penPosition[i])/newBrushSize;
-
-            float zero = float(0);
-            if (currentColor.r == zero && currentColor.g == zero && currentColor.b == zero && currentColor.a == zero)
-            {
-               outColor.rgb = outColor.rgb;
-            }
-            else
-            {
-                outColor.rgb = outColor.rgb*outColor.a+currentColor.rgb*(1-outColor.a);
-            }
-
-            outColor.a = outColor.a +currentColor.a *(1-outColor.a);
-
-            Result[id.xy] =isErasing? penColor: outColor;
-
+            Result[id.xy] = outColor;
         }
     }
 }
 
 int currentDepth;
-[numthreads(32,32,1)]
+[numthreads(32, 32, 1)]
 void SaveFrame (uint3 id : SV_DispatchThreadID)
 {
-   UndoTexture[uint3(id.x,id.y,currentDepth)] = Result[id.xy];
+   UndoTexture[uint3(id.x, id.y, currentDepth)] = Result[id.xy];
 }
 
-[numthreads(32,32,1)]
+[numthreads(32, 32, 1)]
 void WriteFrame (uint3 id : SV_DispatchThreadID)
 {
-    Result[id.xy] =  UndoTexture[uint3(id.x,id.y,currentDepth)];
+    Result[id.xy] =  UndoTexture[uint3(id.x, id.y, currentDepth)];
 }
 
-[numthreads(32,32,1)]
+[numthreads(32, 32, 1)]
 void EraseAll (uint3 id : SV_DispatchThreadID)
 {
-    Result[id.xy] = float4(0,0,0,0);
+    Result[id.xy] = float4(0, 0, 0, 0);
 }
 
