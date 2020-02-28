@@ -17,23 +17,10 @@ Here are descriptions of the different buttons and inputs available with Logitec
 To ensure VR Ink works in applications and appears correctly in the SteamVR shell and status window, an initial installation is required.
 
 ## 1. Install the Driver
-1. Download the latest VR Ink Driver Installer from the [releases page](https://github.com/Logitech/vr_ink_sdk/releases).
-2. Unzip it anywhere on your machine.
-   <br>
-   <img src="../Documentation/Images/Driver/unzippedDriver.png" width="500" alt="unzipped Folder">
-
-3. Run the installer exe application, and follow the instructions on screen. Select Option '1'.
-   <br>
-   <img src="../Documentation/Images/Driver/InstallConsole.PNG" width="500" alt="installer console">
-   <br>
-   <img src="../Documentation/Images/Driver/InstallConsoleSuccessful.png" width="500" alt="installer output">
-
-4. After successful install, restart SteamVR.
-5. The dashboard should look like the one below. You'll notice the greyed out icon for the VR Ink Device's driver: that's all ok.
-   <br>
-   ![SteamVR dashboard](../Documentation/Images/SteamVR/steamvr_dash_afterinstall.png)
-
-6. Then pair your VR Ink following the steps described below.
+1. Download the latest [logitech VR Ink Driver](https://store.steampowered.com/app/1068300/Logitech_VR_Ink_Driver/) from the **Steam Store**.
+2. After successful install,  **make sure your HMD is connected** and turned on, then **restart SteamVR**.
+3. Make sure it's **not in Safe mode**, as the driver won't be loaded.
+4. Then **pair your VR Ink** following the steps described below.
 
 
 
