@@ -15,15 +15,16 @@ Here are descriptions of the different buttons and inputs available with Logitec
 
 # Setting up VR Ink
 To ensure VR Ink works in applications and appears correctly in the SteamVR shell and status window, an initial installation is required.
+>Note: if you need a special standalone version, look [here](../Documentation/Driver/installer.md).
 
 ## 1. Install the Driver
 1. Download the latest [logitech VR Ink Driver](https://store.steampowered.com/app/1068300/Logitech_VR_Ink_Driver/) from the **Steam Store**.<br>
 [<img src="../Documentation/Images/SteamVR/steamstore_page_small.png" width="500" >](../Documentation/Images/SteamVR/steamstore_page_small.png)<br><br>
 2. After successful install the SteamVR status window should look like the one below: you'll note an additional icon (greyed out) for the Logitech VR Ink driver. <br>
 [<img src="../Documentation/Images/SteamVR/steamvr_dash_after_install.png">]()<br><br>
-Some verifications before you move on:
-   * Make sure your **HMD is connected** and turned on.
-   * Verify that SteamVR is **NOT in Safe mode**, as the driver won't be loaded, if that is the case **restart SteamVR**.<br><br>
+>Some verifications before you move on:
+>   * Make sure your **HMD is connected** and turned on.
+>   * Verify that SteamVR is **NOT in Safe mode**, as the driver won't be loaded, if that is the case **restart SteamVR**.<br><br>
 3. Then **pair your VR Ink** following the steps described below.
 
 
@@ -58,9 +59,9 @@ Some verifications before you move on:
 
 ## 3. Using VR Ink
 * Now, If you wear the HMD you should see the VR Ink model in the SteamVR Shell: try to move it !
-* You can bring up the **Logitech VR Ink settings UI** either from clicking on its icon in the **taskbar** or from the windows **tray**:<br>[<img src="../Documentation/Images/Driver/task_bar_icon.png" width="167" alt="Task Bar">]() [<img src="../Documentation/Images/Driver/vrink driver tray.png" width="214" alt="Windows tray">]()<br>
+* You can bring up the **Logitech VR Ink settings UI** either from clicking on its icon in the **taskbar** or from the windows **tray**:<br>[<img src="../Documentation/Images/Driver/task_bar_icon.png" width="167" alt="Unity Integration">]() [<img src="../Documentation/Images/Driver/vrink driver tray.png" width="214" alt="Unity Integration">]()<br>
 * The UI allows you to **verify the status** of your stylus as well as **select specific pressure sensitivity** for the PRIMARY, TIP and GRIP force sensing buttons.<br>
-[<img src="../Documentation/Images/Driver/driver_ui.png" width="500" alt="Driver UI">]()
+[<img src="../Documentation/Images/Driver/driver_ui.png" width="500" alt="Unity Integration">]()
 
 * After your VR Ink is set up, we highly recommend that you check out our Demo App:<br>
 [<img src="../Documentation/Images/LandingPage/DemoExperience.png" width="214" alt="Demo Experience">](../Documentation/DemoExperience)

@@ -1,16 +1,23 @@
 # Logitech VR Ink Driver
 
-The Driver will allow you to customize VR Ink. You can define force response curves for the tip and primary button as well as the grip activation threshold.
+The Driver will allow you to customize VR Ink. You can **define force response curves** for the tip and primary button as well as the **grip activation threshold**.
 
-## In Development
+> **Note for Developers:**<br>
+For The first versions of VR Ink, we issue a driver that listens to the physical device and advertises a virtual device. Because of this approach there is a delay of around 10ms on input and pose.
 
-For early versions of VR Ink, we issue a driver that listens to the physical device and advertises a virtual device. Like a physical device, the virtual device registers as either the Left or Right hand in OpenVR. Because of this approach there is a delay of around 10ms on input and pose.
+>In the future the virtual device will be removed as the features exposed by the virtual device software will be managed directly into the device's firmware. **If your application can use our virtual device now, it will be 100% compatible with the future iterations of VR Ink.**
 
-In the future the virtual device will disappear and the features exposed by the virtual device software will be managed directly into the device's firmware. **If your application can use our virtual device now, it will be 100% compatible with the future iterations of VR Ink.**
+<br>
 
 ## Installation
 
-Please check out our [guide on setting up VR Ink](../../Assets) for instructions on installing the Driver. The Driver files can be found on the [releases page](https://github.com/Logitech/vr_ink_sdk/releases).
+### Recommended 
+You simply install it from the [Steam store page](https://store.steampowered.com/app/1068300/Logitech_VR_Ink_Driver/).<br> -> Please check out our [guide on setting up VR Ink](../../Assets) for detailed instructions. 
+
+### Manual install (for standalone setups)
+If you need to run a **standalone version os SteamVR**:<br> -> You can use the manual installer: See instructions [here](./installer.md).
+
+<br>
 
 ## How to Use
 
