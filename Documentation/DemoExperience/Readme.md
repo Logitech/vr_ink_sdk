@@ -29,7 +29,7 @@ You can select the Experience menu by clicking the appropriate icon with VR Ink 
 
 The app will offer three different scenarios that can be accessed by using the Experiences menu, select:
 
-![Navigation Menu](./../Images/DemoExperience/experience_menu.png)
+![Navigation Menu](./../Images/DemoExperience/MenuScreenShot.png)
 
 - <img src="./../Images/DemoExperience/DRAW.png" width="50" alt="Align"> to access the Drawing experience
 
@@ -47,17 +47,18 @@ Once the surface is calibrated, you can write in 2D by simply touching the tip o
 The Brush Size Slider on the surface will change the maximum thickness of the line. You can also click on the Touchpad and adjust the brush size.
 
 Be sure to check out the two different modes:
+
 |Mode|Description|
 |---|---|
-| <img src="./../Images/DemoExperience/drawing_option_writing.png" width="50" alt="Windows Logo"><br>**Writing mode** | This mode is optimized for handwriting: with finer line, less impact of force and optimized refresh rate. |
-|<img src="./../Images/DemoExperience/drawing_option_drawing.png" width="50" alt="Steam Logo"><br>**Drawing mode** | In this mode the user has more control over the width of the line by either applying more pressure on the surface or with the finger in air.  |
+| <img src="./../Images/DemoExperience/write_mode.png" width="50" alt="Windows Logo"><br>**Writing mode** | This mode is optimized for handwriting: with finer line, less impact of force and optimized refresh rate. |
+|<img src="./../Images/DemoExperience/draw_mode.png" width="50" alt="Steam Logo"><br>**Drawing mode** | In this mode the user has more control over the width of the line by either applying more pressure on the surface or with the finger in air.  |
 
 
 
 
 
 
-![Writing-Drawing Experience](./../Images/DemoExperience/drawing_example.png)
+![Writing-Drawing Experience](./../Images/DemoExperience/DrawingExperience.gif)
 
 ## Markup Experience
 
@@ -69,13 +70,13 @@ In this experience your will be able to experience a markup & review situation, 
 - Additionally you can use both controller's grab buttons to **scale and move the models**, and if those a close enough you can grab them with just the stylus.
 
 
-![Drawing Experience](./../Images/DemoExperience/markup_scene_2.png)
+![Drawing Experience](./../Images/DemoExperience/MarkupExperience.gif)
 
 ## Sculpting Experience
 
 In this demo, you can model the head model by **adding, subtracting or blending "virtual material"**: Simply point with your stylus to the head and press with your index on the primary button. The harder you press, the bigger the effect on the mesh. You can also use the Grip Buttons on VR Ink to rotate the head.
 
-![Drawing Experience](./../Images/DemoExperience/sculpt_scene.png)
+![Drawing Experience](./../Images/DemoExperience/SculptingExperience.gif)
 
 ## Cool Tips 
 
@@ -86,7 +87,7 @@ The desk menu is great for a desk experience, but to access some options **even 
 - Select the option you want by **moving the pen** (left and right).
 - **Confirm by releasing** the Touchstrip.
 
-![MarkerMenu](./../Images/DemoExperience/marker_menu.png)
+![MarkerMenu](./../Images/DemoExperience/MarkerMenu.gif)
 
 ### Shortcuts
 

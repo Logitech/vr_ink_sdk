@@ -12,11 +12,15 @@ Here you will find:
 - A set of example interaction blocks.
 - A [FAQ](https://logitech.github.io/inksupport/) section.
 
+<br>
+
 ## Required Software
 
 | <img src="./Documentation/Images/Logos/WinLogo.png" width="50" alt="Windows Logo"><br>**Windows 10** | <img src="./Documentation/Images/Logos/SteamLogo.png" width="50" alt="Steam Logo"><br>**SteamVR 1.4.18** | <img src="./Documentation/Images/Logos/UnityLogo.png" width="50" alt="Unity Logo"><br>**Unity 2017 LTS** | <img src="./Documentation/Images/Logos/UELogo.png" width="50" alt="Unreal Logo"><br>**Unreal 4.19** |
 | :--------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------- |
 | You are developing your VR app in Microsoft Windows 10 64-bit.                                       | This is the minimum required version of SteamVR that supports VR Ink.                              | You can use Unity to work with VR Ink. This is the Unity version used by the SDK.                        | You can use Unreal Engine to work with VR Ink. This is the Unreal Engine version used by the SDK.   |
+
+<br>
 
 ## SDK Content
 
@@ -29,7 +33,9 @@ Here you will find:
 [<img src="./Documentation/Images/LandingPage/NativeIntegration.png" width="214" alt="Native Integration">](./Assets/NativeSampleProject)
 [<img src="./Documentation/Images/LandingPage/Driver.png" width="214" alt="Driver">](./Documentation/Driver)
 
-### Demo Experience
+<br>
+
+## Demo Experience
 
 A demo is worth a thousand words! We recommend that you try out the [demo experience](./Documentation/DemoExperience/Readme.md) that we have crafted to showcase some interesting and unique use cases with VR Ink. You will be able to experience three different scenarios:
 
@@ -37,7 +43,9 @@ A demo is worth a thousand words! We recommend that you try out the [demo experi
 - Markup & Review a model in 3D.
 - Manipulate & Sculpt a 3D head in VR.
 
-[<img src="./Documentation/Images/DemoExperience/markup_scene_2.png" width="2000" alt="Logitech VR Ink Demo Experience">](./Documentation/DemoExperience/Readme.md)
+[<img src="./Documentation/Images/DemoExperience/DemoExperienceBanner.gif" width="2000" alt="Logitech VR Ink Demo Experience">](./Documentation/DemoExperience/Readme.md)
+
+<br>
 
 ## Get in Touch
 
