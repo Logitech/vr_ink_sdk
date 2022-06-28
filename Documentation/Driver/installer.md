@@ -16,7 +16,7 @@ Here is the list of supported versions for the manual installer:
 |**1.6.x**|v 2.24|
 |**1.9.x**|v 2.26.2|
 |**1.10.x**|v 2.30|
-|**1.12.12**|v 2.31| latest
+|**1.22.12** and later|v 2.31| latest
 
 <br>
 
@@ -38,7 +38,7 @@ The Installer/Uninstaller is able to:
 - run the `vrink_manual_installer.exe` <br><br>
 ![VR Ink Status](./../Images/Driver/vrink_manual_installer_1.png)
 - RECOMMENDED: if you think you've installed a previous version of our driver, it's better to start by **uninstalling** it first, by choosing option `1`
-- then select your option `2,3,4`, depending on the SteamVR version that you have.
+- then select your option `2,3,4,5`, depending on the SteamVR version that you have.
 - Follow the instructions on the console.
 - in case you are asked a question, you can either choose `y` or `yes` to agree or simply **hit ENTER (or any key) to proceed**.
 
