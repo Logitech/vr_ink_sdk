@@ -15,7 +15,8 @@ Here is the list of supported versions for the manual installer:
 |---|---|---|
 |**1.6.x**|v 2.24|
 |**1.9.x**|v 2.26.2|
-|**1.10.x**|v 2.30| latest
+|**1.10.x**|v 2.30|
+|**1.12.12**|v 2.31| latest
 
 <br>
 
